@@ -16,15 +16,15 @@ import java.util.List;
  */
 public class TestSlotRequest extends WorkRequest{
     
-    private static String INITIAL_STATUS = "Slot initialized...";
-    private static String RELEASE_STATUS = "Slot released...";
-    private static String CANCEL_STATUS = "Slot cancelled...";
-    private static String SAMPLE_COLLECTING_STATUS = "This slot is under sample collecting...";
-    private static String SAMPLE_COLLECTION_COMPLETED_STATUS = "This slot has completed sample collection...";
-    private static String NUCLEIC_ACID_TESTING_STATUS = "This slot is under nucleic acid testing...";
-    private static String NUCLEIC_ACID_TEST_COMPLETED_STATUS = "This slot has completed sample collection...";
-    private static String SEND_TO_CDC_STATUS = "This slot has sent to CDC...";
-    private static String CDC_ACCEPTED_STATUS = "This slot has been accepted by CDC...";
+    private static String INITIAL_STATUS = "Initialized";
+    private static String RELEASE_STATUS = "Released";
+    private static String CANCEL_STATUS = "Cancelled";
+    private static String SAMPLE_COLLECTING_STATUS = "In Collection";
+    private static String SAMPLE_COLLECTION_COMPLETED_STATUS = "Collection complete";
+    private static String NUCLEIC_ACID_TESTING_STATUS = "Testing in progress";
+    private static String NUCLEIC_ACID_TEST_COMPLETED_STATUS = "Sent to CDC";
+    private static String SEND_TO_CDC_STATUS = "In Certification";
+    private static String CDC_ACCEPTED_STATUS = "Testing complete";
     
     private List<TestRequest> testRequestList;
     private int capacity;
@@ -133,6 +133,10 @@ public class TestSlotRequest extends WorkRequest{
         return i;
     }
     
+    public int calcBookedStatus() {
+        return calcBookedRequestsHistorically() - calcBookCancelledRequests();
+    }
+    
     public int calcPositiveRequests() {
         int i = 0;
         for (TestRequest tr : testRequestList) {
@@ -140,6 +144,12 @@ public class TestSlotRequest extends WorkRequest{
                 i ++;
             }
         }
+        return i;
+    }
+    
+    public int calcPresentRequests() {
+        int i = calcBookedStatus() - calcAbsentRequests();
+        
         return i;
     }
     
