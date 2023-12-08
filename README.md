@@ -1,23 +1,40 @@
 # Blood Work
 
+# deliverables
+1) A running swing application that addresses the challenges outlined aboveat an eco-system scale. A typical implementation must include the
+participation of at least 4 enterprises, 4-8 organizations, and 4-6 roles.
+2) A presentation that outlines details specific to the design and
+implementation of your solution. This must include, the definition of the problem you solved, stakeholder and their contributions,use-cases, design, and implementation techniques followed. You must explain why each enterprise is essential to delivering the total value as outlined in your problem statement. .
+3) A robust role-based authentication module with strong user name and
+password capabilities. (done)
+4) A reporting module with summarized view of the data in your system. This could include performance data that is important at the system or network level.
+5) A configuration module with test cases that will populate your model and show the correctness of your solution. You might want to integrate with a Faker module from faker.com for random data generation.
+
+# Setup instructions
+- add the jar files in (home)Libraries folder to the (blood-work)libraries within the bloodwork project for db4o and javax/mail
+ - clean and build the project again
+
+
 ## Roles
 
 TestingSiteAdmin (releases slots) > Testingpeople (books a new slot) > Samplecollectionpeople (collects sample, updates workqueue) > nucleic acid testing > cdc status
 
 # To do
 - [ ] History panel
-	- [ ] Testing pending and testing completed
-	- [ ] Slot history
-	- [ ] Collection history
-	- [ ] NAT history
-	- [ ] CDC History
-- [ ] CDC
-- [ ] Disease choices
-- [ ] Email / messaging feature
-- [ ] Misc
+	- [ ] Testing pending and testing completed (Niv)
+	- [ ] Slot history (Niv)
+	- [ ] Collection history (Niv)
+	- [ ] NAT history (Niv)
+	- [ ] CDC History (Shreya)
+- [ ] CDC (Shreya)
+- [ ] Disease choices (Niv)
+- [ ] Email / messaging feature (shubank)
+- [ ] Misc 
 	- [ ] change authors
 	- [ ] change content 
-	- [ ] UI changes
+	- [ ] UI changes 
+- [ ] Admin - charts and shit (deliverables 4) (shubank)
+- [ ] Prepopulate database (shubank)
 
 
 # Testingpeople

@@ -214,6 +214,10 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnCollectionHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCollectionHistoryActionPerformed
         // TODO add your handling code here:
+        SampleCollectionHistory tcljp = new SampleCollectionHistory(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("SampleCollectionHistory", tcljp);
+        layout.next(rightContainer);
     }//GEN-LAST:event_btnCollectionHistoryActionPerformed
 
 
