@@ -1,5 +1,10 @@
 # Blood Work
 
+# Setup instructions
+- add the jar files in (home)Libraries folder to the (blood-work)libraries within the bloodwork project for db4o and javax/mail
+ - clean and build the project again
+
+
 ## Roles
 
 TestingSiteAdmin (releases slots) > Testingpeople (books a new slot) > Samplecollectionpeople (collects sample, updates workqueue) > nucleic acid testing > cdc status
