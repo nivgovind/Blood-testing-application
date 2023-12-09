@@ -152,7 +152,7 @@ public class MngOrdersJPanel extends javax.swing.JPanel {
         int selectedRow = tblOrderHistory.getSelectedRow();
         EqOrders eoq = new EqOrders();
         if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null, "Please select a testing request!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Please select a order!!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         eoq = (EqOrders) tblOrderHistory.getValueAt(selectedRow, 0);
