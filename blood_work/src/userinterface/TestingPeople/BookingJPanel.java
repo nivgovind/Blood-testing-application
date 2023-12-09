@@ -5,6 +5,7 @@
  */
 package userinterface.TestingPeople;
 
+import Business.City.City;
 import Business.Enterprise.Enterprise;
 import Business.Platform;
 import Business.UserAccount.UserAccount;
@@ -15,6 +16,7 @@ import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -37,6 +39,16 @@ public class BookingJPanel extends javax.swing.JPanel {
         this.loginAccount = loginAccount;
         populateSlotTable();
         populateTestingRequestHistoryTable();
+        populateCityCbx();
+    }
+    
+    private void populateCityCbx() {
+        DefaultComboBoxModel<Object> dcbm = new DefaultComboBoxModel<>();
+        for (String ct : TestRequest.diseaseOptions) {
+            dcbm.addElement(ct);
+        }
+        cbxDisease.setModel(dcbm);
+        cbxDisease.setSelectedIndex(0);
     }
     
     private void populateSlotTable() {
@@ -87,7 +99,7 @@ public class BookingJPanel extends javax.swing.JPanel {
                 row[1] = tr.getSampleCollector();
                 row[2] = tr.getNucleicAcidTester();
                 if (tr.getNucleicAcidTestDate() == null) {
-                    row[3] = "";
+                    row[3] = "-";
                 }else {
                     row[3] = tr.isPositive() == true ? "Positive" : "Negative";
                 }
@@ -113,11 +125,12 @@ public class BookingJPanel extends javax.swing.JPanel {
         btnCancelBooking = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblBookingHistory = new javax.swing.JTable();
+        cbxDisease = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         lblWelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblWelcome.setText("Unfull Slots");
+        lblWelcome.setText("Open slots");
 
         tblUnfullSlots.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -138,7 +151,7 @@ public class BookingJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblUnfullSlots);
 
         btnBook.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
-        btnBook.setText("Book One Test");
+        btnBook.setText("Book Test");
         btnBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBookActionPerformed(evt);
@@ -146,7 +159,7 @@ public class BookingJPanel extends javax.swing.JPanel {
         });
 
         lblWelcome1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblWelcome1.setText("Booking History");
+        lblWelcome1.setText("History");
 
         btnCancelBooking.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
         btnCancelBooking.setText("Cancel Booking");
@@ -174,6 +187,14 @@ public class BookingJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblBookingHistory);
 
+        cbxDisease.setFont(new java.awt.Font("微软雅黑", 0, 14)); // NOI18N
+        cbxDisease.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxDisease.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDiseaseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,11 +207,17 @@ public class BookingJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblWelcome1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
                             .addComponent(jScrollPane1)
-                            .addComponent(btnBook, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(cbxDisease, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBook))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblWelcome1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
@@ -201,8 +228,10 @@ public class BookingJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBook)
-                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBook)
+                    .addComponent(cbxDisease, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addComponent(lblWelcome1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -223,8 +252,8 @@ public class BookingJPanel extends javax.swing.JPanel {
         TestSlotRequest tsr = (TestSlotRequest)tblUnfullSlots.getValueAt(selectedRow, 2);
         Enterprise testingPeopleEnterprise = platform.getEnterpriseDirectory().getEnterprise(Enterprise.EnterpriseType.TestingPeople);
         Enterprise testingSiteEnterprise = platform.getEnterpriseDirectory().getEnterprise(Enterprise.EnterpriseType.TestingSite);
-        
-        TestRequest newBookedTr = tsr.bookOneTest(loginAccount);
+        String dpt = (String) cbxDisease.getSelectedItem();
+        TestRequest newBookedTr = tsr.bookOneTest(loginAccount, dpt);
         JOptionPane.showMessageDialog(null, "Book Successfully!!");
         testingPeopleEnterprise.getWorkQueue().addWorkRequest(newBookedTr);
         testingSiteEnterprise.getWorkQueue().addWorkRequest(newBookedTr);
@@ -250,10 +279,15 @@ public class BookingJPanel extends javax.swing.JPanel {
         populateTestingRequestHistoryTable();
     }//GEN-LAST:event_btnCancelBookingActionPerformed
 
+    private void cbxDiseaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDiseaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxDiseaseActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBook;
     private javax.swing.JButton btnCancelBooking;
+    private javax.swing.JComboBox<Object> cbxDisease;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblWelcome;

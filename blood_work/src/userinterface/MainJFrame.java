@@ -48,8 +48,7 @@ public class MainJFrame extends javax.swing.JFrame {
         platform = dB4OUtil.retrieveSystem();
         
 //        Setup application data
-        setup_test_users();
-        TSARsetupTestSlots();
+        configure_app();
         
         initComponents();
         this.setSize(980, 650);
@@ -118,7 +117,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel mainJFrameContainer;
     // End of variables declaration//GEN-END:variables
-    public void create_account(String username, String password, String email, String name, String age, Employee.SexType sexType, City city, Role role) {
+    public UserAccount create_account(String username, String password, String email, String name, String age, Employee.SexType sexType, City city, Role role) {
         // SexType sexType = rbtnMale.isSelected() ? SexType.Male : SexType.Female;
         // City city = (City) cbxCity.getSelectedItem();
         // Role role = (Role) cbxRegisteredRole.getSelectedItem();
@@ -137,6 +136,8 @@ public class MainJFrame extends javax.swing.JFrame {
         enterprise.getUserAccountDirectory().addUserAccount(ua);
         organization.getEmployeeDirectory().addEmployee(e);
         organization.getUserAccountDirectory().addUserAccount(ua);
+        
+        return ua;
     }
     
     public void setup_test_users() {
@@ -157,15 +158,9 @@ public class MainJFrame extends javax.swing.JFrame {
         create_account("Qwerty10", "Qwerty@123", "j@n.edu", "Qwerty10", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new SimulationOperatorRole());
     }
     
-    public void TSARsetupTestSlots() {
-        setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 4);
-        setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 5);
-        setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 6);
-    }
     
     
-    
-    public void setup_slot(String username, String pwd, int capacity, int year, int month, int day) {
+    public TestSlotRequest setup_slot(String username, String pwd, int capacity, int year, int month, int day) {
 //        TestingSiteAdminRole() only releases slots
         UserAccount userAccount = platform.getUserAccountDirectory().authenticateUser(username, pwd);
         Calendar calendar = Calendar.getInstance();
@@ -186,6 +181,8 @@ public class MainJFrame extends javax.swing.JFrame {
         book_test("Tpeople3", "Qwerty@123", newSlot);
         
 //        EmailToolKit.sendEmailWhenNewSlotReleased(platform, newSlot);
+
+        return newSlot;
     }
     
     public void book_test(String username, String pwd, TestSlotRequest tsr){
@@ -198,4 +195,28 @@ public class MainJFrame extends javax.swing.JFrame {
         testingSiteEnterprise.getWorkQueue().addWorkRequest(newBookedTr);
         platform.getAllActivitiesWorkQueue().addWorkRequest(newBookedTr);
     }
+    
+    public TestSlotRequest bulk_book_tests(TestSlotRequest tsr) {
+        tsr.getCapacity();
+        UserAccount ua;
+        UserAccount sampler = platform.getUserAccountDirectory().authenticateUser("Qwerty3", "Qwerty@123");
+        for (int i = 1; i <= tsr.getCapacity(); i++) {
+            ua = create_account(("Tpeople3"+i), "Qwerty@123", "tp@n.edu", "Qwerty1"+i, "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
+            book_test(ua.getUsername(), ua.getPassword(), tsr);
+        }
+        tsr.collectAllSamples(sampler);
+        tsr.markSampleCollectionCompleted();
+        return tsr;
+    }
+    
+    public void configure_app() {
+        setup_test_users();
+        setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 4);
+        setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 5);
+        setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 6);
+        
+        TestSlotRequest tsr = setup_slot("Qwerty6", "Qwerty@123", 4, 2023, 12, 4);
+        bulk_book_tests(tsr);
+    }
+    
 }

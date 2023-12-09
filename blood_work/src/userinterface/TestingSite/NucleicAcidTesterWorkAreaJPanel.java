@@ -200,6 +200,10 @@ public class NucleicAcidTesterWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnTestHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestHistoryActionPerformed
         // TODO add your handling code here:
+        NucleicAcidHistoryJPanel ttljp = new NucleicAcidHistoryJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("NucleicAcidHistoryJPanel", ttljp);
+        layout.next(rightContainer);
     }//GEN-LAST:event_btnTestHistoryActionPerformed
 
     private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed

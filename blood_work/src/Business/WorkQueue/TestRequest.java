@@ -6,6 +6,7 @@
 package Business.WorkQueue;
 
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -20,6 +21,14 @@ public class TestRequest extends WorkRequest {
     private static String COLLECTED_STATUS = "Test sample has been collected...";
     private static String ABSENT_STATUS = "Test people was absent...";
     private static String NUCLEIC_ACID_TESTED_STATUS = "TestRequest has been nucleic acid tested...";
+    
+    private static String COVID = "COVID";
+    private static String HIV = "HIV";
+    private static String FLU = "Influenza";
+    private static String HEPATITIS = "Hepatitis";
+    public static String[] diseaseOptions = {COVID, HIV, FLU, HEPATITIS};
+    
+    
 //    private static String RELEASE_STATUS = "TestRequest released...";
 //    private static String SLOT_CANCEL_STATUS = "TestSlotRequest cancelled...";
     
@@ -43,6 +52,7 @@ public class TestRequest extends WorkRequest {
     private Date bookDate;
     private Date collectionDate;
     private Date nucleicAcidTestDate;
+    private String diseaseType;
 //    private Date sendToCDCDate;
 //    private Date CDCAcceptedDate;
     
@@ -55,7 +65,9 @@ public class TestRequest extends WorkRequest {
 //        this.slotCancelled = false;
         this.testAbsent = false;
         this.positive = false;
+        this.diseaseType = COVID;
     }
+
     
     public boolean bookedButHasntCollect() {
         if (isBooked() && !isBookCancelled() && getSampleCollector() == null) {
@@ -71,12 +83,22 @@ public class TestRequest extends WorkRequest {
         return false;
     }
     
+    public void book(UserAccount testingPeople, String dType) {
+        setStatus(BOOKED_STATUS);
+        setBookDate(new Date());
+        setBooked(true);
+        setTestingPeople(testingPeople);
+        testingPeople.getWorkQueue().addWorkRequest(this);
+        this.diseaseType = (dType != null) ? dType : COVID;
+    }
+    
     public void book(UserAccount testingPeople) {
         setStatus(BOOKED_STATUS);
         setBookDate(new Date());
         setBooked(true);
         setTestingPeople(testingPeople);
         testingPeople.getWorkQueue().addWorkRequest(this);
+        this.diseaseType = COVID;
     }
     
     public void cancelBook() {

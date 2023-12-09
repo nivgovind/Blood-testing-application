@@ -26,6 +26,11 @@ public class TestSlotRequest extends WorkRequest{
     private static String SEND_TO_CDC_STATUS = "In Certification";
     private static String CDC_ACCEPTED_STATUS = "Testing complete";
     
+    private static String COVID = "COVID";
+    private static String HIV = "HIV";
+    private static String FLU = "Influenza";
+    private static String HEPATITIS = "Hepatitis";
+    
     private List<TestRequest> testRequestList;
     private int capacity;
     private boolean cancelled;
@@ -69,9 +74,24 @@ public class TestSlotRequest extends WorkRequest{
     }
     
     public TestRequest bookOneTest(UserAccount testingPeople) {
+        
         for (TestRequest tr : testRequestList) {
             if (!tr.isBooked()) {
-                tr.book(testingPeople);
+                tr.book(testingPeople, COVID);
+                return tr;
+            }
+        }
+        return null;
+    }
+
+    public TestRequest bookOneTest(UserAccount testingPeople, String dType) {
+        if (dType == null || dType.isEmpty()) {
+            dType = COVID;
+        }
+        
+        for (TestRequest tr : testRequestList) {
+            if (!tr.isBooked()) {
+                tr.book(testingPeople, dType);
                 return tr;
             }
         }
@@ -101,6 +121,14 @@ public class TestSlotRequest extends WorkRequest{
             return true;
         }
         return false;
+    }
+    
+    public void collectAllSamples(UserAccount loginAccount) {
+        for (TestRequest tr : testRequestList) {
+            if (tr.bookedButHasntCollect()) {
+                tr.collect(loginAccount);
+            }
+        }
     }
     
     public int calcBookedRequestsHistorically() {

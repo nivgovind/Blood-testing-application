@@ -56,11 +56,11 @@ public class SimulationOperatorWorkAreaJPanel extends javax.swing.JPanel {
         userIcon = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
         btnSingleSimu = new javax.swing.JButton();
-        btnSimuComparison = new javax.swing.JButton();
         btnSettings = new javax.swing.JButton();
         btnMessages = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         lblVersion = new javax.swing.JLabel();
+        btnInventory = new javax.swing.JButton();
         rightContainer = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
@@ -74,21 +74,11 @@ public class SimulationOperatorWorkAreaJPanel extends javax.swing.JPanel {
 
         btnSingleSimu.setBackground(new java.awt.Color(255, 209, 111));
         btnSingleSimu.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnSingleSimu.setText("Single Simulation");
+        btnSingleSimu.setText("Order details");
         btnSingleSimu.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnSingleSimu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSingleSimuActionPerformed(evt);
-            }
-        });
-
-        btnSimuComparison.setBackground(new java.awt.Color(255, 209, 111));
-        btnSimuComparison.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnSimuComparison.setText("Simulation Comparison");
-        btnSimuComparison.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSimuComparison.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSimuComparisonActionPerformed(evt);
             }
         });
 
@@ -126,6 +116,16 @@ public class SimulationOperatorWorkAreaJPanel extends javax.swing.JPanel {
         lblVersion.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         lblVersion.setText("v. 1.x.x");
 
+        btnInventory.setBackground(new java.awt.Color(255, 209, 111));
+        btnInventory.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnInventory.setText("Inventory");
+        btnInventory.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnInventory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInventoryActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout leftBarLayout = new javax.swing.GroupLayout(leftBar);
         leftBar.setLayout(leftBarLayout);
         leftBarLayout.setHorizontalGroup(
@@ -141,10 +141,10 @@ public class SimulationOperatorWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(userIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSingleSimu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSimuComparison, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInventory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         leftBarLayout.setVerticalGroup(
@@ -154,17 +154,17 @@ public class SimulationOperatorWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(userIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUserName)
-                .addGap(37, 37, 37)
-                .addComponent(btnSingleSimu)
-                .addGap(33, 33, 33)
-                .addComponent(btnSimuComparison)
                 .addGap(35, 35, 35)
+                .addComponent(btnInventory)
+                .addGap(32, 32, 32)
+                .addComponent(btnSingleSimu)
+                .addGap(38, 38, 38)
                 .addComponent(btnMessages)
                 .addGap(36, 36, 36)
                 .addComponent(btnSettings)
                 .addGap(36, 36, 36)
                 .addComponent(btnLogout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(lblVersion)
                 .addContainerGap())
         );
@@ -180,6 +180,10 @@ public class SimulationOperatorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnSingleSimuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSingleSimuActionPerformed
         // TODO add your handling code here:
+        MngOrdersJPanel mjp = new MngOrdersJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("MngOrdersJPanel",mjp);
+        layout.next(rightContainer);
     }//GEN-LAST:event_btnSingleSimuActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -189,10 +193,6 @@ public class SimulationOperatorWorkAreaJPanel extends javax.swing.JPanel {
         layout.previous(mainJFrameContainer);
         dB4OUtil.storeSystem(platform);
     }//GEN-LAST:event_btnLogoutActionPerformed
-
-    private void btnSimuComparisonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimuComparisonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSimuComparisonActionPerformed
 
     private void btnSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsActionPerformed
         SettingsJPanel sjp = new SettingsJPanel(this, rightContainer,platform, loginAccount);
@@ -208,12 +208,20 @@ public class SimulationOperatorWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(rightContainer);
     }//GEN-LAST:event_btnMessagesActionPerformed
 
+    private void btnInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInventoryActionPerformed
+        // TODO add your handling code here:
+        InventoryMngJPanel mjp = new InventoryMngJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("InventoryMngJPanel",mjp);
+        layout.next(rightContainer);
+    }//GEN-LAST:event_btnInventoryActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnInventory;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMessages;
     private javax.swing.JButton btnSettings;
-    private javax.swing.JButton btnSimuComparison;
     private javax.swing.JButton btnSingleSimu;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblUserName;
