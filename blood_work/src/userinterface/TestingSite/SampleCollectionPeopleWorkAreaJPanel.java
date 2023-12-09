@@ -61,6 +61,7 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
         btnMessages = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         lblVersion = new javax.swing.JLabel();
+        btnEquipmentOrder = new javax.swing.JButton();
         rightContainer = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
@@ -72,7 +73,7 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
         lblUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblUserName.setText("UserName");
 
-        btnToCollectList.setBackground(new java.awt.Color(255, 209, 111));
+        btnToCollectList.setBackground(new java.awt.Color(204, 204, 255));
         btnToCollectList.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnToCollectList.setText("To-Collect List");
         btnToCollectList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -83,7 +84,7 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnCollectionHistory.setBackground(new java.awt.Color(255, 209, 111));
+        btnCollectionHistory.setBackground(new java.awt.Color(204, 204, 255));
         btnCollectionHistory.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnCollectionHistory.setText("Collection History");
         btnCollectionHistory.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -94,7 +95,7 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnSettings.setBackground(new java.awt.Color(255, 209, 111));
+        btnSettings.setBackground(new java.awt.Color(204, 204, 255));
         btnSettings.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnSettings.setText("Settings");
         btnSettings.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -105,7 +106,7 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnMessages.setBackground(new java.awt.Color(255, 209, 111));
+        btnMessages.setBackground(new java.awt.Color(204, 204, 255));
         btnMessages.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnMessages.setText("Messages");
         btnMessages.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -131,6 +132,17 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
         lblVersion.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         lblVersion.setText("v. 1.x.x");
 
+        btnEquipmentOrder.setBackground(new java.awt.Color(204, 204, 255));
+        btnEquipmentOrder.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnEquipmentOrder.setText("Equipment Order");
+        btnEquipmentOrder.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnEquipmentOrder.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnEquipmentOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEquipmentOrderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout leftBarLayout = new javax.swing.GroupLayout(leftBar);
         leftBar.setLayout(leftBarLayout);
         leftBarLayout.setHorizontalGroup(
@@ -149,7 +161,8 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(btnCollectionHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnEquipmentOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         leftBarLayout.setVerticalGroup(
@@ -159,7 +172,9 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(userIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUserName)
-                .addGap(37, 37, 37)
+                .addGap(27, 27, 27)
+                .addComponent(btnEquipmentOrder)
+                .addGap(29, 29, 29)
                 .addComponent(btnToCollectList)
                 .addGap(33, 33, 33)
                 .addComponent(btnCollectionHistory)
@@ -169,14 +184,14 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnSettings)
                 .addGap(36, 36, 36)
                 .addComponent(btnLogout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblVersion)
                 .addContainerGap())
         );
 
         jSplitPane1.setLeftComponent(leftBar);
 
-        rightContainer.setBackground(new java.awt.Color(255, 255, 255));
+        rightContainer.setBackground(new java.awt.Color(204, 255, 204));
         rightContainer.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(rightContainer);
 
@@ -220,9 +235,18 @@ public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
         layout.next(rightContainer);
     }//GEN-LAST:event_btnCollectionHistoryActionPerformed
 
+    private void btnEquipmentOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEquipmentOrderActionPerformed
+        // TODO add your handling code here:
+        NewOrderJPanel tcljp = new NewOrderJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("NewOrderJPanel", tcljp);
+        layout.next(rightContainer);
+    }//GEN-LAST:event_btnEquipmentOrderActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCollectionHistory;
+    private javax.swing.JButton btnEquipmentOrder;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMessages;
     private javax.swing.JButton btnSettings;

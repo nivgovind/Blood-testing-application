@@ -8,6 +8,8 @@ package Business;
 import Business.City.CityDirectory;
 import Business.Employee.EmployeeDirectory;
 import Business.Enterprise.EnterpriseDirectory;
+import Business.Supplier.EquipmentOrderManager;
+import Business.Supplier.Inventory;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.WorkQueue;
 import java.util.logging.Logger;
@@ -25,6 +27,8 @@ public class Platform {
     private CityDirectory cityDirectory;
     private WorkQueue allActivitiesWorkQueue;
     private Logger platformLogger;
+    private EquipmentOrderManager eOrderManager;
+    private Inventory inventory;
 
     public Platform() {
         version = "v. 1.0.0";
@@ -33,6 +37,8 @@ public class Platform {
         userAccountDirectory = new UserAccountDirectory();
         cityDirectory = new CityDirectory();
         allActivitiesWorkQueue = new WorkQueue();
+        eOrderManager = new EquipmentOrderManager();
+        inventory = new Inventory();
 //        platformLogger = Logger.getLogger("Covid-19 Testing and Alert Platform");//this line will called storeSystem() error
     }
     
@@ -90,5 +96,22 @@ public class Platform {
     public Logger getPlatformLogger() {
         return platformLogger;
     }
+
+    public EquipmentOrderManager geteOrderManager() {
+        return eOrderManager;
+    }
+
+    public void seteOrderManager(EquipmentOrderManager eOrderManager) {
+        this.eOrderManager = eOrderManager;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+    
     
 }

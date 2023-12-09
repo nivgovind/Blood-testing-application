@@ -1,10 +1,8 @@
 # Blood Work
 
 # deliverables
-1) A running swing application that addresses the challenges outlined aboveat an eco-system scale. A typical implementation must include the
-participation of at least 4 enterprises, 4-8 organizations, and 4-6 roles.
-2) A presentation that outlines details specific to the design and
-implementation of your solution. This must include, the definition of the problem you solved, stakeholder and their contributions,use-cases, design, and implementation techniques followed. You must explain why each enterprise is essential to delivering the total value as outlined in your problem statement. .
+1) A running swing application that addresses the challenges outlined aboveat an eco-system scale. A typical implementation must include the participation of at least 4 enterprises, 4-8 organizations, and 4-6 roles.
+2) A presentation that outlines details specific to the design and implementation of your solution. This must include, the definition of the problem you solved, stakeholder and their contributions,use-cases, design, and implementation techniques followed. You must explain why each enterprise is essential to delivering the total value as outlined in your problem statement. .
 3) A robust role-based authentication module with strong user name and
 password capabilities. (done)
 4) A reporting module with summarized view of the data in your system. This could include performance data that is important at the system or network level.
@@ -27,6 +25,8 @@ TestingSiteAdmin (releases slots) > Testingpeople (books a new slot) > Samplecol
 	- [x] NAT history (Niv)
 	- [ ] CDC History (Shreya)
 - [ ] CDC (Shreya)
+	- [ ] CDC certifier
+	- [ ] R and D (person who creates disease scope)
 - [x] Disease choices (Niv)
 - [ ] Email / messaging feature (shubank)
 - [ ] Misc 
@@ -35,6 +35,10 @@ TestingSiteAdmin (releases slots) > Testingpeople (books a new slot) > Samplecol
 	- [ ] UI changes 
 - [ ] Admin - charts and shit (deliverables 4) (shubank)
 - [ ] Prepopulate database (shubank)
+- [x] Supplier enterprise (niv)
+	- [x] Inventory / Fulfillment mgr
+- [ ] User manager (niv)
+- [ ] Create report
 
 
 # Testingpeople

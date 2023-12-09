@@ -130,7 +130,7 @@ public class BookingJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         lblWelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblWelcome.setText("Unfull Slots");
+        lblWelcome.setText("Open slots");
 
         tblUnfullSlots.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,7 +151,7 @@ public class BookingJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblUnfullSlots);
 
         btnBook.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
-        btnBook.setText("Book One Test");
+        btnBook.setText("Book Test");
         btnBook.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBookActionPerformed(evt);
@@ -159,7 +159,7 @@ public class BookingJPanel extends javax.swing.JPanel {
         });
 
         lblWelcome1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblWelcome1.setText("Booking History");
+        lblWelcome1.setText("History");
 
         btnCancelBooking.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
         btnCancelBooking.setText("Cancel Booking");
@@ -189,6 +189,11 @@ public class BookingJPanel extends javax.swing.JPanel {
 
         cbxDisease.setFont(new java.awt.Font("微软雅黑", 0, 14)); // NOI18N
         cbxDisease.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbxDisease.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDiseaseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -273,6 +278,10 @@ public class BookingJPanel extends javax.swing.JPanel {
         populateSlotTable();
         populateTestingRequestHistoryTable();
     }//GEN-LAST:event_btnCancelBookingActionPerformed
+
+    private void cbxDiseaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDiseaseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxDiseaseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
