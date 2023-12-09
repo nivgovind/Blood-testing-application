@@ -24,8 +24,9 @@ public class TestRequest extends WorkRequest {
     
     private static String COVID = "COVID";
     private static String HIV = "HIV";
-    private static String FLU = "influenza";
+    private static String FLU = "Influenza";
     private static String HEPATITIS = "Hepatitis";
+    public static String[] diseaseOptions = {COVID, HIV, FLU, HEPATITIS};
     
     
 //    private static String RELEASE_STATUS = "TestRequest released...";
@@ -66,15 +67,7 @@ public class TestRequest extends WorkRequest {
         this.positive = false;
         this.diseaseType = COVID;
     }
-    
-    public ArrayList getdiseaseOptions() {
-        ArrayList<String> options = new ArrayList<>();
-        options.add(COVID);
-        options.add(HIV);
-        options.add(FLU);
-        options.add(HEPATITIS);
-        return options;
-    }
+
     
     public boolean bookedButHasntCollect() {
         if (isBooked() && !isBookCancelled() && getSampleCollector() == null) {
@@ -90,12 +83,22 @@ public class TestRequest extends WorkRequest {
         return false;
     }
     
+    public void book(UserAccount testingPeople, String dType) {
+        setStatus(BOOKED_STATUS);
+        setBookDate(new Date());
+        setBooked(true);
+        setTestingPeople(testingPeople);
+        testingPeople.getWorkQueue().addWorkRequest(this);
+        this.diseaseType = (dType != null) ? dType : COVID;
+    }
+    
     public void book(UserAccount testingPeople) {
         setStatus(BOOKED_STATUS);
         setBookDate(new Date());
         setBooked(true);
         setTestingPeople(testingPeople);
         testingPeople.getWorkQueue().addWorkRequest(this);
+        this.diseaseType = COVID;
     }
     
     public void cancelBook() {
