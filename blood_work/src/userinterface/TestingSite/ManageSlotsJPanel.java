@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -306,7 +308,11 @@ public class ManageSlotsJPanel extends javax.swing.JPanel {
         jplNewSlot.setVisible(false);
         populateSlotTable();
         
-        EmailToolKit.sendEmailWhenNewSlotReleased(platform, newSlot);
+        try {
+            EmailToolKit.sendEmailWhenNewSlotReleased(platform, newSlot);
+        } catch (Exception ex) {
+            Logger.getLogger(ManageSlotsJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnCreateSlotActionPerformed
 
     private void btnNewSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewSlotActionPerformed
@@ -324,7 +330,11 @@ public class ManageSlotsJPanel extends javax.swing.JPanel {
         TestSlotRequest tsr = (TestSlotRequest)tblSlots.getValueAt(selectedRow, 2);
         tsr.cancel();
         populateSlotTable();
-        EmailToolKit.sendEmailWhenSlotCancelled(platform, tsr);
+        try {
+            EmailToolKit.sendEmailWhenSlotCancelled(platform, tsr);
+        } catch (Exception ex) {
+            Logger.getLogger(ManageSlotsJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnCancelSlotActionPerformed
 
     private void txtYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtYearActionPerformed

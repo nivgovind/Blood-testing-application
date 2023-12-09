@@ -85,7 +85,7 @@ public class EmailToolKit {
         sendMail(tr.getTestingPeople().getEmployee().getEmail(), "Lorem Ipsem", "Result Released", "Your COVID-19 nucleic acid test result is " + result + ". Thanks for your cooperation.");
     }
 
-    public static void sendEmailWhenSuccessfullyRegistered() throws Exception {
+    public static void sendEmailWhenSuccessfullyRegistered(String email, UserAccount ua) throws Exception {
         // Todo - Replace lorem ipsem with the from and to email address. Replace username with the username of the user who registered
         sendMail("Lorem Ipsem", "Lorem Ipsem", "Registration completed", "Hi, " + "Username"  + "!\n\nCongratulations, you are registered successfully to our blood testing platrom.");
     }
