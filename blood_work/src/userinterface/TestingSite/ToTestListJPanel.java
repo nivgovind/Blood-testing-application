@@ -15,6 +15,8 @@ import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -266,7 +268,11 @@ public class ToTestListJPanel extends javax.swing.JPanel {
 
         populateSlotTable();
         populateCollectableTestingRequestTable(selectedSlot);
-        EmailToolKit.sendEmailWhenTestResultReleased(platform, tr, "POSITIVE");
+        try {
+            EmailToolKit.sendEmailWhenTestResultReleased(platform, tr, "POSITIVE");
+        } catch (Exception ex) {
+            Logger.getLogger(ToTestListJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnPositiveActionPerformed
 
     private void btnCompleteTestingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteTestingActionPerformed
@@ -296,7 +302,11 @@ public class ToTestListJPanel extends javax.swing.JPanel {
 
         populateSlotTable();
         populateCollectableTestingRequestTable(selectedSlot);
-        EmailToolKit.sendEmailWhenTestResultReleased(platform, tr, "NEGATIVE");
+        try {
+            EmailToolKit.sendEmailWhenTestResultReleased(platform, tr, "NEGATIVE");
+        } catch (Exception ex) {
+            Logger.getLogger(ToTestListJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnNegativeActionPerformed
 
 

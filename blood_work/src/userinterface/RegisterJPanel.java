@@ -27,6 +27,8 @@ import Business.Util.EmailToolKit;
 import Business.Util.InputValidator;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
@@ -483,9 +485,10 @@ public class RegisterJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainJFrameContainer.getLayout();
         layout.previous(mainJFrameContainer);
         
-        EmailToolKit.sendEmailWhenSuccessfullyRegistered(e.getEmail(), ua);
-        
-        //        for (Enterprise en : platform.getEnterpriseDirectory().getEnterpriseList()) {
+        try {
+            EmailToolKit.sendEmailWhenSuccessfullyRegistered(e.getEmail(), ua);
+            
+            //        for (Enterprise en : platform.getEnterpriseDirectory().getEnterpriseList()) {
 //            System.out.println(en.getName());
 //            for (Organization or : en.getOrganizationDirectory().getOrganizationList()) {
 //                System.out.println(or.getName());
@@ -493,6 +496,9 @@ public class RegisterJPanel extends javax.swing.JPanel {
 //            }
 //            en.getUserAccountDirectory().getUserAccountList().forEach((useraccount)->System.out.println(useraccount.getUsername()));
 //        }
+        } catch (Exception ex) {
+            Logger.getLogger(RegisterJPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void rbtnFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbtnFemaleActionPerformed
