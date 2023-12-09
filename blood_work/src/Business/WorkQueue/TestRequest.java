@@ -6,6 +6,7 @@
 package Business.WorkQueue;
 
 import Business.UserAccount.UserAccount;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -20,6 +21,13 @@ public class TestRequest extends WorkRequest {
     private static String COLLECTED_STATUS = "Test sample has been collected...";
     private static String ABSENT_STATUS = "Test people was absent...";
     private static String NUCLEIC_ACID_TESTED_STATUS = "TestRequest has been nucleic acid tested...";
+    
+    private static String COVID = "COVID";
+    private static String HIV = "HIV";
+    private static String FLU = "influenza";
+    private static String HEPATITIS = "Hepatitis";
+    
+    
 //    private static String RELEASE_STATUS = "TestRequest released...";
 //    private static String SLOT_CANCEL_STATUS = "TestSlotRequest cancelled...";
     
@@ -43,6 +51,7 @@ public class TestRequest extends WorkRequest {
     private Date bookDate;
     private Date collectionDate;
     private Date nucleicAcidTestDate;
+    private String diseaseType;
 //    private Date sendToCDCDate;
 //    private Date CDCAcceptedDate;
     
@@ -55,6 +64,16 @@ public class TestRequest extends WorkRequest {
 //        this.slotCancelled = false;
         this.testAbsent = false;
         this.positive = false;
+        this.diseaseType = COVID;
+    }
+    
+    public ArrayList getdiseaseOptions() {
+        ArrayList<String> options = new ArrayList<>();
+        options.add(COVID);
+        options.add(HIV);
+        options.add(FLU);
+        options.add(HEPATITIS);
+        return options;
     }
     
     public boolean bookedButHasntCollect() {

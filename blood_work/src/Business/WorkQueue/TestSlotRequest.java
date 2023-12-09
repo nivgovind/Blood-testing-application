@@ -103,6 +103,14 @@ public class TestSlotRequest extends WorkRequest{
         return false;
     }
     
+    public void collectAllSamples(UserAccount loginAccount) {
+        for (TestRequest tr : testRequestList) {
+            if (tr.bookedButHasntCollect()) {
+                tr.collect(loginAccount);
+            }
+        }
+    }
+    
     public int calcBookedRequestsHistorically() {
         int i = 0;
         for (TestRequest tr : testRequestList) {

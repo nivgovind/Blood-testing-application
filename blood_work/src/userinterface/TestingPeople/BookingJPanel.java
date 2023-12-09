@@ -87,7 +87,7 @@ public class BookingJPanel extends javax.swing.JPanel {
                 row[1] = tr.getSampleCollector();
                 row[2] = tr.getNucleicAcidTester();
                 if (tr.getNucleicAcidTestDate() == null) {
-                    row[3] = "";
+                    row[3] = "-";
                 }else {
                     row[3] = tr.isPositive() == true ? "Positive" : "Negative";
                 }

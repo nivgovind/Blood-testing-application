@@ -8,6 +8,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.Enterprise.Enterprise;
 import Business.Platform;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.TestRequest;
 import Business.WorkQueue.TestSlotRequest;
 import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
@@ -74,6 +75,28 @@ public class SampleCollectionHistory extends javax.swing.JPanel {
             }
         }
     }
+    
+    private void populateCollectableTestingRequestTable(TestSlotRequest tsr) {
+        DefaultTableModel dtm = (DefaultTableModel) tblCollectableTestReqeusts.getModel();
+        dtm.setRowCount(0);
+        
+        for (WorkRequest wr : tsr.getTestRequestList()) {
+            TestRequest tr = (TestRequest) wr;
+            if (!tr.bookedButHasntCollect()) {
+                Object[] row = new Object[5];
+                row[0] = tr; 
+                row[1] = tr.getSampleCollector();
+                row[2] = tr.getNucleicAcidTester();
+                if (tr.getNucleicAcidTestDate() == null) {
+                    row[3] = "-";
+                }else {
+                    row[3] = tr.isPositive() == true ? "Positive" : "Negative";
+                }
+                row[4] = tr.getTestingPeople().getUsername();
+                dtm.addRow(row);
+            }
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -87,6 +110,9 @@ public class SampleCollectionHistory extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCollectableSlots = new javax.swing.JTable();
         lblWelcome = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblCollectableTestReqeusts = new javax.swing.JTable();
+        btnViewCollection = new javax.swing.JButton();
 
         tblCollectableSlots.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,6 +135,32 @@ public class SampleCollectionHistory extends javax.swing.JPanel {
         lblWelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblWelcome.setText("History");
 
+        tblCollectableTestReqeusts.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Status", "Sample Collector", "Nucleic Acid Tester", "Test Result", "Patient name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tblCollectableTestReqeusts);
+
+        btnViewCollection.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
+        btnViewCollection.setText("View details");
+        btnViewCollection.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewCollectionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -119,7 +171,12 @@ public class SampleCollectionHistory extends javax.swing.JPanel {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnViewCollection, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(272, 272, 272)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -129,14 +186,35 @@ public class SampleCollectionHistory extends javax.swing.JPanel {
                 .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(331, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(btnViewCollection)
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnViewCollectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewCollectionActionPerformed
+        int selectedRow = tblCollectableSlots.getSelectedRow();
+
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a slot!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        TestSlotRequest tsr = (TestSlotRequest)tblCollectableSlots.getValueAt(selectedRow, 2);
+        selectedSlot = tsr;
+        populateCollectableTestingRequestTable(tsr);
+        tsr.markIsSampleCollecting();
+    }//GEN-LAST:event_btnViewCollectionActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnViewCollection;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblWelcome;
     private javax.swing.JTable tblCollectableSlots;
+    private javax.swing.JTable tblCollectableTestReqeusts;
     // End of variables declaration//GEN-END:variables
 }
