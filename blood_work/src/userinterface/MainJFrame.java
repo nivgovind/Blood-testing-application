@@ -215,7 +215,7 @@ public class MainJFrame extends javax.swing.JFrame {
         setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 5);
         setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 6);
         
-        TestSlotRequest tsr = setup_slot("Qwerty6", "Qwerty@123", 20, 2023, 12, 4);
+        TestSlotRequest tsr = setup_slot("Qwerty6", "Qwerty@123", 4, 2023, 12, 4);
         bulk_book_tests(tsr);
     }
     

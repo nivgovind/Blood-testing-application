@@ -21,13 +21,13 @@ TestingSiteAdmin (releases slots) > Testingpeople (books a new slot) > Samplecol
 
 # To do
 - [ ] History panel
-	- [ ] Testing pending and testing completed (Niv)
-	- [ ] Slot history (Niv)
-	- [ ] Collection history (Niv)
-	- [ ] NAT history (Niv)
+	- [x] Testing pending and testing completed (Niv)
+	- [x] Slot history (Niv)
+	- [x] Collection history (Niv)
+	- [x] NAT history (Niv)
 	- [ ] CDC History (Shreya)
 - [ ] CDC (Shreya)
-- [ ] Disease choices (Niv)
+- [x] Disease choices (Niv)
 - [ ] Email / messaging feature (shubank)
 - [ ] Misc 
 	- [ ] change authors
