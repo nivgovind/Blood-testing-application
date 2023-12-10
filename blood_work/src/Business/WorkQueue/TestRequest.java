@@ -38,6 +38,7 @@ public class TestRequest extends WorkRequest {
 //    private boolean slotCancelled;
     private boolean testAbsent;
     private boolean positive;
+    private boolean cdcapproved;
 //    private UserAccount slotReleaser;
 //    private UserAccount slotCanceller;
     private UserAccount testingPeople;
@@ -165,6 +166,14 @@ public class TestRequest extends WorkRequest {
 
     public void setBookCancelled(boolean bookCancelled) {
         this.bookCancelled = bookCancelled;
+    }
+
+    public boolean isCdcapproved() {
+        return cdcapproved;
+    }
+
+    public void setCdcapproved(boolean cdcapproved) {
+        this.cdcapproved = cdcapproved;
     }
 
 //    public boolean isSlotCancelled() {
