@@ -56,7 +56,6 @@ public class TestingSiteDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
         userIcon = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
         btnToSendList = new javax.swing.JButton();
-        btnSendHistory = new javax.swing.JButton();
         btnSettings = new javax.swing.JButton();
         btnMessages = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
@@ -74,21 +73,11 @@ public class TestingSiteDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
 
         btnToSendList.setBackground(new java.awt.Color(255, 209, 111));
         btnToSendList.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnToSendList.setText("To-Send List");
+        btnToSendList.setText("Manage Employees");
         btnToSendList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnToSendList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnToSendListActionPerformed(evt);
-            }
-        });
-
-        btnSendHistory.setBackground(new java.awt.Color(255, 209, 111));
-        btnSendHistory.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnSendHistory.setText("Send History");
-        btnSendHistory.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnSendHistory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSendHistoryActionPerformed(evt);
             }
         });
 
@@ -138,14 +127,13 @@ public class TestingSiteDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(userIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnToSendList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnSendHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(leftBarLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblVersion)))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         leftBarLayout.setVerticalGroup(
             leftBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,15 +144,13 @@ public class TestingSiteDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(lblUserName)
                 .addGap(37, 37, 37)
                 .addComponent(btnToSendList)
-                .addGap(33, 33, 33)
-                .addComponent(btnSendHistory)
-                .addGap(35, 35, 35)
+                .addGap(91, 91, 91)
                 .addComponent(btnMessages)
                 .addGap(36, 36, 36)
                 .addComponent(btnSettings)
                 .addGap(36, 36, 36)
                 .addComponent(btnLogout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(lblVersion)
                 .addContainerGap())
         );
@@ -180,11 +166,11 @@ public class TestingSiteDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnToSendListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToSendListActionPerformed
         // TODO add your handling code here:
+        TestSiteManagerJPanel bjp = new TestSiteManagerJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("TestSiteManagerJPanel",bjp);
+        layout.next(rightContainer);
     }//GEN-LAST:event_btnToSendListActionPerformed
-
-    private void btnSendHistoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSendHistoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSendHistoryActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
@@ -212,7 +198,6 @@ public class TestingSiteDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMessages;
-    private javax.swing.JButton btnSendHistory;
     private javax.swing.JButton btnSettings;
     private javax.swing.JButton btnToSendList;
     private javax.swing.JSplitPane jSplitPane1;

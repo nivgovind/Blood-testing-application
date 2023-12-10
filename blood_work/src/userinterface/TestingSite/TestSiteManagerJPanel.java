@@ -2,15 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package userinterface.TestingPeople;
+package userinterface.TestingSite;
 
 import Business.Enterprise.Enterprise;
 import Business.Organization.Organization;
 import Business.Platform;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.TestRequest;
-import Business.WorkQueue.WorkRequest;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -19,10 +17,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author nivcodes
  */
-public class TestPeopleManageJPanel extends javax.swing.JPanel {
+public class TestSiteManagerJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form TestPeopleManageJPanel
+     * Creates new form TestSiteManagerJPanel
      */
     
     private JPanel rightContainer;
@@ -31,8 +29,7 @@ public class TestPeopleManageJPanel extends javax.swing.JPanel {
     private Enterprise enterprise;
     private Organization organization;
     private Role role;
-    
-    public TestPeopleManageJPanel(JPanel rightContainer, Platform platform, UserAccount loginAccount) {
+    public TestSiteManagerJPanel(JPanel rightContainer, Platform platform, UserAccount loginAccount) {
         initComponents();
         this.rightContainer = rightContainer;
         this.platform = platform;
@@ -40,7 +37,6 @@ public class TestPeopleManageJPanel extends javax.swing.JPanel {
         setValues();
         populateTable();
     }
-    
     public void setValues() {
         this.role = loginAccount.getRole();
         this.enterprise = platform.getEnterpriseDirectory().getEnterpriseByRole(role);
@@ -67,6 +63,7 @@ public class TestPeopleManageJPanel extends javax.swing.JPanel {
 
         }
     }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
