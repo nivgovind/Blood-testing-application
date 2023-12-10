@@ -18,30 +18,31 @@ password capabilities. (done)
 TestingSiteAdmin (releases slots) > Testingpeople (books a new slot) > Samplecollectionpeople (collects sample, updates workqueue) > nucleic acid testing > cdc status
 
 # To do
-- [ ] History panel
+- [x] History panel
 	- [x] Testing pending and testing completed (Niv)
 	- [x] Slot history (Niv)
 	- [x] Collection history (Niv)
 	- [x] NAT history (Niv)
-	- [ ] CDC History (Shreya)
-- [ ] CDC (Shreya)
+	- [x] CDC History (Shreya)
+- [x] CDC (Shreya)
 	- [x] CDC certifier
-	- [ ] R and D (person who creates disease scope)
 - [x] Disease choices (Niv)
-- [ ] Email feature (shubank)
+- [x] Email feature (shubank)
 - [x] Misc (niv)
 	- [x] change content 
 	- [x] UI changes
 	- [x] messaging (niv)
-- [ ] Admin - charts and shit (deliverables 4) (shubank)
-- [ ] Prepopulate database (shubank)
 - [x] Supplier enterprise (niv)
 	- [x] Inventory / Fulfillment mgr
 - [x] User manager (niv)
 	- [x] People manager
 	- [x] Booking manager
 	- [x] Sampling manager 
-- [ ] Create report
+- [x] Prepopulate database (niv)
+	- [ ] CDC
+- [ ] Admin - charts and shit (deliverables 4) (shubank)
+- [ ] Screenshots
+- [ ] Create report(niv)
 
 
 # Testingpeople

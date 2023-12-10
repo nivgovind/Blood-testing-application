@@ -5,6 +5,7 @@
  */
 package userinterface;
 
+//import com.github.javafaker.Faker;
 import Business.City.City;
 import Business.DB4OUtil.DB4OUtil;
 import Business.Employee.Employee;
@@ -48,7 +49,7 @@ public class MainJFrame extends javax.swing.JFrame {
         platform = dB4OUtil.retrieveSystem();
         
 //        Setup application data
-        configure_app();
+//        configure_app();
         
         initComponents();
         this.setSize(980, 650);
@@ -117,106 +118,6 @@ public class MainJFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel mainJFrameContainer;
     // End of variables declaration//GEN-END:variables
-    public UserAccount create_account(String username, String password, String email, String name, String age, Employee.SexType sexType, City city, Role role) {
-        // SexType sexType = rbtnMale.isSelected() ? SexType.Male : SexType.Female;
-        // City city = (City) cbxCity.getSelectedItem();
-        // Role role = (Role) cbxRegisteredRole.getSelectedItem();
-        
-        
-        Employee e = new Employee(name, age, sexType, email, city);
-        platform.getEmployeeDirectory().createAndAddEmployee(name, age, sexType, email, city);
-        UserAccount ua = platform.getUserAccountDirectory().createAndAddUserAccount(username, password, e, role);
-        
-        // get enterprise and organization that the newly registered user belongs to
-        Enterprise enterprise = platform.getEnterpriseDirectory().getEnterpriseByRole(role);
-        Organization organization = enterprise.getOrganizationDirectory().getOrganizationByRole(role);
-        
-        // add employee and useraccount to the specific enterprise and organization
-        enterprise.getEmployeeDirectory().addEmployee(e);
-        enterprise.getUserAccountDirectory().addUserAccount(ua);
-        organization.getEmployeeDirectory().addEmployee(e);
-        organization.getUserAccountDirectory().addUserAccount(ua);
-        
-        return ua;
-    }
-    
-    public void setup_test_users() {
-//        RegisteredTestingPeopleRole
-        create_account("Qwerty1", "Qwerty@123", "a@n.edu", "Qwerty1", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
-        create_account("Tpeople2", "Qwerty@123", "tp@n.edu", "Qwerty1", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
-        create_account("Tpeople3", "Qwerty@123", "tptwo@n.edu", "Qwerty1", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
-        
-        
-        create_account("Qwerty2", "Qwerty@123", "b@n.edu", "Qwerty2", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new TestingPeopleAdminRole());
-        create_account("Qwerty3", "Qwerty@123", "c@n.edu", "Qwerty3", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new SampleCollectionPeopleRole());
-        create_account("Qwerty4", "Qwerty@123", "d@n.edu", "Qwerty4", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new NucleicAcidTesterRole());
-        create_account("Qwerty5", "Qwerty@123", "e@n.edu", "Qwerty5", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new TestingSiteDataHandlerRole());
-        create_account("Qwerty6", "Qwerty@123", "f@n.edu", "Qwerty6", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new TestingSiteAdminRole());
-        create_account("Qwerty7", "Qwerty@123", "g@n.edu", "Qwerty7", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new CDCAdminRole());
-        create_account("Qwerty8", "Qwerty@123", "h@n.edu", "Qwerty8", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new CDCDataHandlerRole());
-        create_account("Qwerty9", "Qwerty@123", "i@n.edu", "Qwerty9", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new CDCInfoDistributorRole());
-        create_account("Qwerty10", "Qwerty@123", "j@n.edu", "Qwerty10", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new SimulationOperatorRole());
-    }
-    
-    
-    
-    public TestSlotRequest setup_slot(String username, String pwd, int capacity, int year, int month, int day) {
-//        TestingSiteAdminRole() only releases slots
-        UserAccount userAccount = platform.getUserAccountDirectory().authenticateUser(username, pwd);
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month - 1, day);
-        Date scheduleTestingDate = calendar.getTime();
-//        long scheduleTestingDateMills = calendar.getTimeInMillis();
-        
-        Enterprise enterprise = platform.getEnterpriseDirectory().getEnterpriseByRole(userAccount.getRole());
-        
-//        WorkQueue requestQueue = enterprise.getWorkQueue();
-        TestSlotRequest newSlot = new TestSlotRequest(userAccount, scheduleTestingDate, capacity);
-        enterprise.getWorkQueue().addWorkRequest(newSlot);
-        platform.getAllActivitiesWorkQueue().addWorkRequest(newSlot);
-        newSlot.release();
-        
-//        Book some slots for dummy user
-        book_test("Tpeople2", "Qwerty@123", newSlot);
-        book_test("Tpeople3", "Qwerty@123", newSlot);
-        
-//        EmailToolKit.sendEmailWhenNewSlotReleased(platform, newSlot);
 
-        return newSlot;
-    }
-    
-    public void book_test(String username, String pwd, TestSlotRequest tsr){
-        UserAccount userAccount = platform.getUserAccountDirectory().authenticateUser(username, pwd);
-        Enterprise testingPeopleEnterprise = platform.getEnterpriseDirectory().getEnterprise(Enterprise.EnterpriseType.TestingPeople);
-        Enterprise testingSiteEnterprise = platform.getEnterpriseDirectory().getEnterprise(Enterprise.EnterpriseType.TestingSite);
-        
-        TestRequest newBookedTr = tsr.bookOneTest(userAccount);
-        testingPeopleEnterprise.getWorkQueue().addWorkRequest(newBookedTr);
-        testingSiteEnterprise.getWorkQueue().addWorkRequest(newBookedTr);
-        platform.getAllActivitiesWorkQueue().addWorkRequest(newBookedTr);
-    }
-    
-    public TestSlotRequest bulk_book_tests(TestSlotRequest tsr) {
-        tsr.getCapacity();
-        UserAccount ua;
-        UserAccount sampler = platform.getUserAccountDirectory().authenticateUser("Qwerty3", "Qwerty@123");
-        for (int i = 1; i <= tsr.getCapacity(); i++) {
-            ua = create_account(("Tpeople3"+i), "Qwerty@123", "tp@n.edu", "Qwerty1"+i, "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
-            book_test(ua.getUsername(), ua.getPassword(), tsr);
-        }
-        tsr.collectAllSamples(sampler);
-        tsr.markSampleCollectionCompleted();
-        return tsr;
-    }
-    
-    public void configure_app() {
-        setup_test_users();
-        setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 4);
-        setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 5);
-        setup_slot("Qwerty6", "Qwerty@123", 5, 2023, 12, 6);
-        
-        TestSlotRequest tsr = setup_slot("Qwerty6", "Qwerty@123", 4, 2023, 12, 4);
-        bulk_book_tests(tsr);
-    }
     
 }

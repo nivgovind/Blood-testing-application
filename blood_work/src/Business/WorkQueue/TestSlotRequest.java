@@ -129,6 +129,21 @@ public class TestSlotRequest extends WorkRequest{
                 tr.collect(loginAccount);
             }
         }
+        markSampleCollectionCompleted();
+    }
+    
+    public void TestAllSamples(UserAccount natc) {
+        int c = 0;
+        for (TestRequest tr : testRequestList) {
+            if (tr.bookedButHasntTest()) {
+                if (c%2==0) {
+                    tr.markPositive(natc);
+                } else {
+                    tr.markNegative(natc);
+                }
+            }
+        }
+        markNucleicAcidTestCompleted();
     }
     
     public int calcBookedRequestsHistorically() {
