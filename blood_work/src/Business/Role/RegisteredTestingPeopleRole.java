@@ -12,7 +12,7 @@ import userinterface.TestingPeople.RegisteredTestingPeopleWorkAreaJPanel;
 
 /**
  *
- * @author raunak
+ * @author shubank
  */
 public class RegisteredTestingPeopleRole extends Role{
 

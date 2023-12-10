@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Administrator
+ * @author shubank
  */
 public class ViewTestRequestDetailJPanel extends javax.swing.JPanel {
 
@@ -59,7 +59,7 @@ public class ViewTestRequestDetailJPanel extends javax.swing.JPanel {
         lblFlightInfo = new javax.swing.JLabel();
         txtResult = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(255, 204, 204));
 
         lblFlightNumber.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
         lblFlightNumber.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -101,7 +101,7 @@ public class ViewTestRequestDetailJPanel extends javax.swing.JPanel {
         txtSampleCollectionDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSampleCollectionDate.setEnabled(false);
 
-        lblFlightInfo.setFont(new java.awt.Font("黑体", 2, 24)); // NOI18N
+        lblFlightInfo.setFont(new java.awt.Font("Al Tarikh", 1, 24)); // NOI18N
         lblFlightInfo.setText("Test Request Detail");
 
         txtResult.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -112,7 +112,7 @@ public class ViewTestRequestDetailJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(151, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,19 +134,16 @@ public class ViewTestRequestDetailJPanel extends javax.swing.JPanel {
                                 .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtScheduledTestingDate, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtSlotReleaseDate, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addComponent(btnBack, javax.swing.GroupLayout.Alignment.LEADING)))
-                .addContainerGap(171, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblFlightInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnBack, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(lblFlightInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(48, 48, 48)
                 .addComponent(lblFlightInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(lblFlightNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))

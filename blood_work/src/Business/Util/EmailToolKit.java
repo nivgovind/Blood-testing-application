@@ -82,7 +82,7 @@ public class EmailToolKit {
     
     public static void sendEmailWhenTestResultReleased(Platform platform, TestRequest tr, String result) throws Exception {
         // Todo - Replace lorem ipsem with the to email address
-        sendMail(tr.getTestingPeople().getEmployee().getEmail(), "Lorem Ipsem", "Result Released", "Your COVID-19 nucleic acid test result is " + result + ". Thanks for your cooperation.");
+        sendMail(tr.getTestingPeople().getEmployee().getEmail(), "Lorem Ipsem", "Result Released", "Your nucleic acid test result is " + result + ". Thanks for your cooperation.");
     }
 
     public static void sendEmailWhenSuccessfullyRegistered(String email, UserAccount ua) throws Exception {

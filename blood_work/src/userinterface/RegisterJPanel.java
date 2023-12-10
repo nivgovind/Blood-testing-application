@@ -39,7 +39,7 @@ import javax.swing.text.Document;
 
 /**
  *
- * @author Administrator
+ * @author shreya
  */
 public class RegisterJPanel extends javax.swing.JPanel {
 
@@ -209,7 +209,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
         txtAge = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(0, 0, 102));
 
         btnBack.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
         btnBack.setText("<< Back to Login");
@@ -220,9 +220,11 @@ public class RegisterJPanel extends javax.swing.JPanel {
         });
 
         lblPassword.setFont(new java.awt.Font("微软雅黑", 1, 18)); // NOI18N
+        lblPassword.setForeground(new java.awt.Color(204, 204, 255));
         lblPassword.setText("Password");
 
         jLabel7.setFont(new java.awt.Font("微软雅黑", 1, 18)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(204, 204, 255));
         jLabel7.setText("Sex");
 
         btnRegister.setBackground(new java.awt.Color(255, 153, 0));
@@ -235,6 +237,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
         });
 
         lblName.setFont(new java.awt.Font("微软雅黑", 1, 18)); // NOI18N
+        lblName.setForeground(new java.awt.Color(204, 204, 255));
         lblName.setText("Name");
 
         txtUserName.addActionListener(new java.awt.event.ActionListener() {
@@ -244,9 +247,11 @@ public class RegisterJPanel extends javax.swing.JPanel {
         });
 
         lblAge.setFont(new java.awt.Font("微软雅黑", 1, 18)); // NOI18N
+        lblAge.setForeground(new java.awt.Color(204, 204, 255));
         lblAge.setText("Age");
 
-        rbtnFemale.setFont(new java.awt.Font("微软雅黑", 2, 12)); // NOI18N
+        rbtnFemale.setFont(new java.awt.Font("微软雅黑", 1, 12)); // NOI18N
+        rbtnFemale.setForeground(new java.awt.Color(204, 204, 255));
         rbtnFemale.setText("Female");
         rbtnFemale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -255,9 +260,11 @@ public class RegisterJPanel extends javax.swing.JPanel {
         });
 
         lblEmail.setFont(new java.awt.Font("微软雅黑", 1, 18)); // NOI18N
+        lblEmail.setForeground(new java.awt.Color(204, 204, 255));
         lblEmail.setText("Email");
 
-        rbtnMale.setFont(new java.awt.Font("微软雅黑", 2, 12)); // NOI18N
+        rbtnMale.setFont(new java.awt.Font("微软雅黑", 1, 12)); // NOI18N
+        rbtnMale.setForeground(new java.awt.Color(204, 204, 255));
         rbtnMale.setText("Male");
         rbtnMale.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,9 +273,11 @@ public class RegisterJPanel extends javax.swing.JPanel {
         });
 
         jLabel10.setFont(new java.awt.Font("微软雅黑", 1, 18)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(204, 204, 255));
         jLabel10.setText("City");
 
         jLabel6.setFont(new java.awt.Font("微软雅黑", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 204, 255));
         jLabel6.setText("Register Role");
 
         cbxRegisteredRole.setFont(new java.awt.Font("微软雅黑", 0, 14)); // NOI18N
@@ -278,6 +287,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
         cbxCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         lblUserName.setFont(new java.awt.Font("微软雅黑", 1, 18)); // NOI18N
+        lblUserName.setForeground(new java.awt.Color(204, 204, 255));
         lblUserName.setText("User Name");
 
         txtPassword.addActionListener(new java.awt.event.ActionListener() {

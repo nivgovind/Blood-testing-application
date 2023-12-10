@@ -17,7 +17,7 @@ import userinterface.SettingsJPanel;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class CDCAdminWorkAreaJPanel extends javax.swing.JPanel{
 

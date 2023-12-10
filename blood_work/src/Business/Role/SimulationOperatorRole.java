@@ -12,7 +12,7 @@ import userinterface.Simulation.SimulationOperatorWorkAreaJPanel;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class SimulationOperatorRole extends Role{
     

@@ -17,7 +17,7 @@ import userinterface.SettingsJPanel;
 
 /**
  *
- * @author Administrator
+ * @author shreya
  */
 public class CDCInfoDistributorWorkAreaJPanel extends javax.swing.JPanel {
 

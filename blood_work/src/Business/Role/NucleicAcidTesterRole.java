@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author raunak
+ * @author shreya
  */
 public class NucleicAcidTesterRole extends Role{
     

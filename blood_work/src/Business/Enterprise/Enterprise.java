@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author Administrator
+ * @author shubank
  */
 public abstract class Enterprise {
     private String name;

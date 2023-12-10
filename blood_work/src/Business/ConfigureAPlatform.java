@@ -18,7 +18,7 @@ import Business.UserAccount.UserAccount;
 
 /**
  *
- * @author rrheg
+ * @author nivcodes
  */
 public class ConfigureAPlatform {
     

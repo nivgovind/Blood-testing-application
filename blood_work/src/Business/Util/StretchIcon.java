@@ -7,7 +7,7 @@ package Business.Util;
 
 /**
  *
- * @author Administrator
+ * @author shubank
  */
 import java.awt.Component;
 import java.awt.Container;
@@ -19,7 +19,6 @@ import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.awt.image.ImageObserver;
 import java.net.URL;
-
 import javax.swing.ImageIcon;
 
 /**
@@ -32,7 +31,7 @@ import javax.swing.ImageIcon;
  * in conjunction with a component and layout that does not depend on the size of the component's Icon.
  *
  * @version 1.1 01/15/2016
- * @author Darryl
+ * @author shubank
  */
 public class StretchIcon extends ImageIcon
 {

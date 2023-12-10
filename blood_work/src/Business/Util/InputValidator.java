@@ -14,7 +14,7 @@ import javax.swing.border.LineBorder;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class InputValidator {
     

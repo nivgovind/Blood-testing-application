@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 class CDCEnterprise extends Enterprise {
 

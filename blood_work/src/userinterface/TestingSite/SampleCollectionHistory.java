@@ -114,6 +114,8 @@ public class SampleCollectionHistory extends javax.swing.JPanel {
         tblCollectableTestReqeusts = new javax.swing.JTable();
         btnViewCollection = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         tblCollectableSlots.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

@@ -17,7 +17,7 @@ import userinterface.SettingsJPanel;
 
 /**
  *
- * @author Administrator
+ * @author shubank
  */
 public class SampleCollectionPeopleWorkAreaJPanel extends javax.swing.JPanel {
 

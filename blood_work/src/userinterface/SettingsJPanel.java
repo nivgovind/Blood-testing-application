@@ -37,7 +37,7 @@ import userinterface.TestingSite.TestingSiteDataHandlerWorkAreaJPanel;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class SettingsJPanel extends javax.swing.JPanel {
 
@@ -190,7 +190,7 @@ public class SettingsJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         lblUploadFileName = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("微软雅黑", 1, 18)); // NOI18N
         jLabel1.setText("Profile");
