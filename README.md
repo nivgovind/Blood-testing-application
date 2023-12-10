@@ -37,7 +37,10 @@ TestingSiteAdmin (releases slots) > Testingpeople (books a new slot) > Samplecol
 - [ ] Prepopulate database (shubank)
 - [x] Supplier enterprise (niv)
 	- [x] Inventory / Fulfillment mgr
-- [ ] User manager (niv)
+- [x] User manager (niv)
+	- [x] People manager
+	- [x] Booking manager
+	- [x] Sampling manager 
 - [ ] Create report
 
 

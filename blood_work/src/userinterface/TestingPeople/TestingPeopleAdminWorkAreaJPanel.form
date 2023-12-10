@@ -50,7 +50,6 @@
                                   <Component id="btnMangePeople" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnAllBooking" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnSettings" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnAllTesting" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnLogout" alignment="0" max="32767" attributes="0"/>
                                   <Component id="btnMessages" alignment="0" max="32767" attributes="0"/>
                               </Group>
@@ -75,15 +74,13 @@
                       <Component id="btnMangePeople" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="btnAllBooking" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="btnAllTesting" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                       <Component id="btnMessages" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Component id="btnSettings" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                      <EmptySpace pref="37" max="32767" attributes="0"/>
                       <Component id="lblVersion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -94,7 +91,7 @@
             <Component class="javax.swing.JLabel" name="userIcon">
               <Properties>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="&#x9ed8;&#x8ba4;&#x5149;&#x6807;"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
             </Component>
@@ -150,18 +147,6 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSettingsActionPerformed"/>
               </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnAllTesting">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="6f" green="d1" red="ff" type="rgb"/>
-                </Property>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Arial" size="14" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="All Testing"/>
-                <Property name="horizontalAlignment" type="int" value="2"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnLogout">
               <Properties>

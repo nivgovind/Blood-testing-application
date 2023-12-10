@@ -38,6 +38,10 @@ public class UserAccount {
         setDeleted(true);
     }
     
+    public void enableThisAccount() {
+        setDeleted(false);
+    }
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
