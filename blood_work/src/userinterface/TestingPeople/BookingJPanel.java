@@ -255,6 +255,7 @@ public class BookingJPanel extends javax.swing.JPanel {
         String dpt = (String) cbxDisease.getSelectedItem();
         TestRequest newBookedTr = tsr.bookOneTest(loginAccount, dpt);
         JOptionPane.showMessageDialog(null, "Book Successfully!!");
+        platform.getMsgDirectory().addMessageRequest(loginAccount, newBookedTr.getTestingPeople(), "Your booking has been recorded. kindly check");
         testingPeopleEnterprise.getWorkQueue().addWorkRequest(newBookedTr);
         testingSiteEnterprise.getWorkQueue().addWorkRequest(newBookedTr);
         platform.getAllActivitiesWorkQueue().addWorkRequest(newBookedTr);
@@ -273,6 +274,7 @@ public class BookingJPanel extends javax.swing.JPanel {
         TestRequest tr = (TestRequest)tblBookingHistory.getValueAt(selectedRow, 0);
         
         tr.cancelBook();
+        platform.getMsgDirectory().addMessageRequest(loginAccount, tr.getTestingPeople(), "Your booking has been cancelled. kindly check");
         JOptionPane.showMessageDialog(null, "Cancel Successfully!!");
         
         populateSlotTable();

@@ -262,7 +262,7 @@ public class ToCollectListJPanel extends javax.swing.JPanel {
 
         tr.collect(loginAccount);
         JOptionPane.showMessageDialog(null, "Collect Successfully!!");
-
+        platform.getMsgDirectory().addMessageRequest(loginAccount, tr.getTestingPeople(), "Your sample has been collected. kindly check");
         populateSlotTable();
         populateCollectableTestingRequestTable(selectedSlot);
     }//GEN-LAST:event_btnCollectedActionPerformed

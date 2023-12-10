@@ -264,6 +264,7 @@ public class ToTestListJPanel extends javax.swing.JPanel {
         TestRequest tr = (TestRequest)tblTestableTestReqeusts.getValueAt(selectedRow, 0);
 
         tr.markPositive(loginAccount);
+        platform.getMsgDirectory().addMessageRequest(loginAccount, tr.getTestingPeople(), "You have tested positive for this test. kindly check");
         JOptionPane.showMessageDialog(null, "Test Successfully!!");
 
         populateSlotTable();
@@ -299,7 +300,7 @@ public class ToTestListJPanel extends javax.swing.JPanel {
 
         tr.markNegative(loginAccount);
         JOptionPane.showMessageDialog(null, "Test Successfully!!");
-
+        platform.getMsgDirectory().addMessageRequest(loginAccount, tr.getTestingPeople(), "You have tested negative for this test. kindly check");
         populateSlotTable();
         populateCollectableTestingRequestTable(selectedSlot);
         try {

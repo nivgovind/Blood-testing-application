@@ -7,6 +7,9 @@ package userinterface;
 
 import Business.Platform;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.MessageRequest;
+import Business.WorkQueue.TestSlotRequest;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -32,29 +35,14 @@ public class MessageJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tblMessages.getModel();
         dtm.setRowCount(0);
         
-//        List<TestSlotRequest> list = new ArrayList<>();
-//        for (WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()) {
-//                if (request instanceof TestSlotRequest) {
-//                    TestSlotRequest r = (TestSlotRequest) request;
-//                    if (!r.isSampleCollecting() && !r.isSampleCollectionCompleted() && !r.isCancelled()) {
-//                        list.add(r);
-//                    }
-//                }
-//            }
-//        
-//        for (TestRequest tr : selectedSlot.getTestRequestList()) {
-//            Object[] row = new Object[4];
-//            row[0] = tr; 
-//            row[1] = tr.getSampleCollector();
-//            row[2] = tr.getNucleicAcidTester();
-//            if (tr.getNucleicAcidTestDate() == null) {
-//                row[3] = "";
-//            }else {
-//                row[3] = tr.isPositive() == true ? "Positive" : "Negative";
-//            }
-//            
-//            dtm.addRow(row);
-//        }
+        for (MessageRequest tr : platform.getMsgDirectory().searchMessageRequestbyreciever(loginAccount)) {
+            Object[] row = new Object[3];
+            row[0] = tr.getSender(); 
+            row[1] = tr.getReceiver();
+            row[2] = tr;
+            
+            dtm.addRow(row);
+        }
     }
 
     /**
@@ -146,7 +134,15 @@ public class MessageJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnViewDetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailActionPerformed
+        int selectedRow = tblMessages.getSelectedRow();
         
+        if (selectedRow < 0){
+            JOptionPane.showMessageDialog(null, "Please select a message!!", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
+        MessageRequest tsr = (MessageRequest)tblMessages.getValueAt(selectedRow, 2);
+        txtAreaMessageDetail.setText(tsr.getMessageBody());
     }//GEN-LAST:event_btnViewDetailActionPerformed
 
 

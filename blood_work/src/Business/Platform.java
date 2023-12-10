@@ -11,6 +11,7 @@ import Business.Enterprise.EnterpriseDirectory;
 import Business.Supplier.EquipmentOrderManager;
 import Business.Supplier.Inventory;
 import Business.UserAccount.UserAccountDirectory;
+import Business.WorkQueue.MessageDirectory;
 import Business.WorkQueue.WorkQueue;
 import java.util.logging.Logger;
 
@@ -29,6 +30,7 @@ public class Platform {
     private Logger platformLogger;
     private EquipmentOrderManager eOrderManager;
     private Inventory inventory;
+    private MessageDirectory msgDirectory;
 
     public Platform() {
         version = "v. 1.0.0";
@@ -39,6 +41,7 @@ public class Platform {
         allActivitiesWorkQueue = new WorkQueue();
         eOrderManager = new EquipmentOrderManager();
         inventory = new Inventory();
+        msgDirectory = new MessageDirectory();
 //        platformLogger = Logger.getLogger("Covid-19 Testing and Alert Platform");//this line will called storeSystem() error
     }
     
@@ -112,6 +115,12 @@ public class Platform {
     public void setInventory(Inventory inventory) {
         this.inventory = inventory;
     }
-    
-    
+
+    public MessageDirectory getMsgDirectory() {
+        return msgDirectory;
+    }
+
+    public void setMsgDirectory(MessageDirectory msgDirectory) {
+        this.msgDirectory = msgDirectory;
+    }
 }

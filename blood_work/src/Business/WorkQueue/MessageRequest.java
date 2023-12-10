@@ -52,4 +52,8 @@ public class MessageRequest extends WorkRequest{
         this.read = read;
     }
     
+    @Override
+    public String toString() {
+        return messageBody;
+    }
 }
