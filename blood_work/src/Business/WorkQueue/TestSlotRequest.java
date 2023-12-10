@@ -124,26 +124,32 @@ public class TestSlotRequest extends WorkRequest{
     }
     
     public void collectAllSamples(UserAccount loginAccount) {
+        int c = 4;
         for (TestRequest tr : testRequestList) {
             if (tr.bookedButHasntCollect()) {
-                tr.collect(loginAccount);
+                if (c%2==0) {
+                    tr.collect(loginAccount);
+                } else {
+                    tr.markAbsent();
+                }
             }
+            c++;
         }
         markSampleCollectionCompleted();
     }
     
     public void TestAllSamples(UserAccount natc) {
-        int c = 0;
+        int c = 4;
         for (TestRequest tr : testRequestList) {
             if (tr.bookedButHasntTest()) {
-                if (c%2==0) {
+                if (c%3==0) {
                     tr.markPositive(natc);
                 } else {
                     tr.markNegative(natc);
                 }
             }
+            c++;
         }
-        markNucleicAcidTestCompleted();
     }
     
     public int calcBookedRequestsHistorically() {
@@ -183,7 +189,17 @@ public class TestSlotRequest extends WorkRequest{
     public int calcPositiveRequests() {
         int i = 0;
         for (TestRequest tr : testRequestList) {
-            if (tr.isBooked() && tr.isPositive()) {
+            if (tr.isPositive()) {
+                i ++;
+            }
+        }
+        return i;
+    }
+    
+    public int calcnegativeRequests() {
+        int i = 0;
+        for (TestRequest tr : testRequestList) {
+            if (!tr.isPositive()) {
                 i ++;
             }
         }

@@ -35,4 +35,10 @@ public class EmployeeDirectory {
         employeeList.add(employee);
         return employee;
     }
+    
+    public int getEmployeeCount() {
+        return employeeList.size();
+    }
+
+    
 }
