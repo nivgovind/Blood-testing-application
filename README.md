@@ -25,7 +25,7 @@ TestingSiteAdmin (releases slots) > Testingpeople (books a new slot) > Samplecol
 	- [x] NAT history (Niv)
 	- [ ] CDC History (Shreya)
 - [ ] CDC (Shreya)
-	- [ ] CDC certifier
+	- [x] CDC certifier
 	- [ ] R and D (person who creates disease scope)
 - [x] Disease choices (Niv)
 - [ ] Email / messaging feature (shubank)
