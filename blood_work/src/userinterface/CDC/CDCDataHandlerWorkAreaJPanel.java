@@ -185,7 +185,7 @@ public class CDCDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnToAcceptListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToAcceptListActionPerformed
         // TODO add your handling code here:
-        CDCApprovalJPanel cajp = new CDCApprovalJPanel();
+        CDCApprovalJPanel cajp = new CDCApprovalJPanel(rightContainer, platform, loginAccount);
         CardLayout layout = (CardLayout)rightContainer.getLayout();
         rightContainer.add("CDCApprovalListJPanel",cajp);
         layout.next(rightContainer);
@@ -215,6 +215,10 @@ public class CDCDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnAcceptedListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptedListActionPerformed
         // TODO add your handling code here:
+        CDCHistoryJPanel chjp = new CDCHistoryJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("CDCHistoryJPanel",chjp);
+        layout.next(rightContainer);
     }//GEN-LAST:event_btnAcceptedListActionPerformed
 
 
