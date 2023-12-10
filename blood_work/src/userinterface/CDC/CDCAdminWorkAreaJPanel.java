@@ -206,6 +206,14 @@ public class CDCAdminWorkAreaJPanel extends javax.swing.JPanel{
         add(jSplitPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnMangeTestingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMangeTestingSiteActionPerformed
+        // TODO add your handling code here:
+        CDCHistoryJPanel historyJPanel = new CDCHistoryJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("CDCHistoryJPanel",historyJPanel);
+        layout.next(rightContainer);
+    }//GEN-LAST:event_btnMangeTestingSiteActionPerformed
+
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
         mainJFrameContainer.remove(this);

@@ -88,6 +88,11 @@ public class CDCDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
         btnAcceptedList.setText("Accepted List");
         btnAcceptedList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnAcceptedList.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
+        btnAcceptedList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptedListActionPerformed(evt);
+            }
+        });
 
         btnSettings.setBackground(new java.awt.Color(255, 209, 111));
         btnSettings.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -180,6 +185,10 @@ public class CDCDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnToAcceptListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToAcceptListActionPerformed
         // TODO add your handling code here:
+        CDCApprovalJPanel cajp = new CDCApprovalJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("CDCApprovalListJPanel",cajp);
+        layout.next(rightContainer);
     }//GEN-LAST:event_btnToAcceptListActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -203,6 +212,14 @@ public class CDCDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
         rightContainer.add("MessageJPanel",mjp);
         layout.next(rightContainer);
     }//GEN-LAST:event_btnMessagesActionPerformed
+
+    private void btnAcceptedListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptedListActionPerformed
+        // TODO add your handling code here:
+        CDCHistoryJPanel chjp = new CDCHistoryJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("CDCHistoryJPanel",chjp);
+        layout.next(rightContainer);
+    }//GEN-LAST:event_btnAcceptedListActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
