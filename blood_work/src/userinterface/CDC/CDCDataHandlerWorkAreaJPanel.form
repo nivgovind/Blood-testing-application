@@ -131,6 +131,9 @@
                 <Property name="horizontalAlignment" type="int" value="2"/>
                 <Property name="horizontalTextPosition" type="int" value="10"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAcceptedListActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnSettings">
               <Properties>
