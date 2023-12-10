@@ -94,7 +94,7 @@ public class TestingJPanel extends javax.swing.JPanel {
         tblTestingCompleted = new javax.swing.JTable();
         btnViewDetail2 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(255, 204, 204));
 
         lblWelcome1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblWelcome1.setText("Testing Pending Result");

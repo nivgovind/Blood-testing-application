@@ -70,7 +70,7 @@ public class ViewTestSlotDetailJPanel extends javax.swing.JPanel {
         txtStatus = new javax.swing.JTextField();
         txtAbsentNum = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         txtPositiveNum.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPositiveNum.setEnabled(false);

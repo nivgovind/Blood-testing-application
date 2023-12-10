@@ -127,7 +127,7 @@ public class BookingJPanel extends javax.swing.JPanel {
         tblBookingHistory = new javax.swing.JTable();
         cbxDisease = new javax.swing.JComboBox<>();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(255, 255, 204));
 
         lblWelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblWelcome.setText("Open slots");

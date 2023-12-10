@@ -79,6 +79,8 @@ public class TestSiteManagerJPanel extends javax.swing.JPanel {
         btnViewDetail1 = new javax.swing.JButton();
         btnSetEnable = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 204));
+
         tblTestingPendingResult.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

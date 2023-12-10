@@ -91,6 +91,8 @@ public class NucleicAcidHistoryJPanel extends javax.swing.JPanel {
         btnStartTesting = new javax.swing.JButton();
         lblWelcome = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(153, 204, 255));
+
         tblTestableSlots.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

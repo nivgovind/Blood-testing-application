@@ -65,8 +65,9 @@ public class TestingPeopleAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        leftBar.setBackground(new java.awt.Color(255, 255, 255));
+        leftBar.setBackground(new java.awt.Color(153, 204, 255));
 
+        userIcon.setBackground(new java.awt.Color(204, 204, 255));
         userIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         lblUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N

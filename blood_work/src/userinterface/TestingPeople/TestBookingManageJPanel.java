@@ -98,6 +98,8 @@ public class TestBookingManageJPanel extends javax.swing.JPanel {
         lblWelcome3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblWelcome3.setText("Testing Pending Result");
 
+        setBackground(new java.awt.Color(204, 255, 204));
+
         tblTestingPendingResult.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

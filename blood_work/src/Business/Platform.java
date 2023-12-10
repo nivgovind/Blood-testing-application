@@ -42,7 +42,6 @@ public class Platform {
         eOrderManager = new EquipmentOrderManager();
         inventory = new Inventory();
         msgDirectory = new MessageDirectory();
-//        platformLogger = Logger.getLogger("Covid-19 Testing and Alert Platform");//this line will called storeSystem() error
     }
     
     public static Platform getInstance(){

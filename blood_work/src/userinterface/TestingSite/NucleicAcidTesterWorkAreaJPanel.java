@@ -63,9 +63,10 @@ public class NucleicAcidTesterWorkAreaJPanel extends javax.swing.JPanel {
         lblVersion = new javax.swing.JLabel();
         rightContainer = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
         setLayout(new java.awt.BorderLayout());
 
-        leftBar.setBackground(new java.awt.Color(255, 255, 255));
+        leftBar.setBackground(new java.awt.Color(255, 204, 204));
 
         userIcon.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 

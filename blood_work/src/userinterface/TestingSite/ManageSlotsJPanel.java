@@ -131,6 +131,7 @@ public class ManageSlotsJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblSlots);
 
+        lblWelcome.setBackground(new java.awt.Color(204, 204, 255));
         lblWelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblWelcome.setText("Slots Scheduled");
 
@@ -351,20 +352,10 @@ public class ManageSlotsJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCancel1;
-    private javax.swing.JButton btnCancel2;
     private javax.swing.JButton btnCancelSlot;
     private javax.swing.JButton btnCreateSlot;
     private javax.swing.JButton btnNewSlot;
-    private javax.swing.JButton btnSave1;
-    private javax.swing.JButton btnSave2;
-    private javax.swing.JPanel editJPanel;
-    private javax.swing.JPanel editJPanel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -374,11 +365,7 @@ public class ManageSlotsJPanel extends javax.swing.JPanel {
     private javax.swing.JTable tblSlots;
     private javax.swing.JTextField txtCapacity;
     private javax.swing.JTextField txtDay;
-    private javax.swing.JTextField txtMenu1;
-    private javax.swing.JTextField txtMenu2;
     private javax.swing.JTextField txtMonth;
-    private javax.swing.JTextField txtUnitPrice1;
-    private javax.swing.JTextField txtUnitPrice2;
     private javax.swing.JTextField txtYear;
     // End of variables declaration//GEN-END:variables
 }

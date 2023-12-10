@@ -28,11 +28,11 @@ TestingSiteAdmin (releases slots) > Testingpeople (books a new slot) > Samplecol
 	- [x] CDC certifier
 	- [ ] R and D (person who creates disease scope)
 - [x] Disease choices (Niv)
-- [ ] Email / messaging feature (shubank)
-- [ ] Misc 
-	- [ ] change authors
-	- [ ] change content 
-	- [ ] UI changes 
+- [ ] Email feature (shubank)
+- [x] Misc (niv)
+	- [x] change content 
+	- [x] UI changes
+	- [x] messaging (niv)
 - [ ] Admin - charts and shit (deliverables 4) (shubank)
 - [ ] Prepopulate database (shubank)
 - [x] Supplier enterprise (niv)

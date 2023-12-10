@@ -82,6 +82,8 @@ public class TestPeopleManageJPanel extends javax.swing.JPanel {
         btnViewDetail1 = new javax.swing.JButton();
         btnSetEnable = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         tblTestingPendingResult.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

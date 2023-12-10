@@ -62,7 +62,7 @@ public class MessageJPanel extends javax.swing.JPanel {
         lblWelcome = new javax.swing.JLabel();
         btnViewDetail = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         tblMessages.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

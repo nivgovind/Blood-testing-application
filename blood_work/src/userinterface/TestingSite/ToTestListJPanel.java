@@ -117,7 +117,7 @@ public class ToTestListJPanel extends javax.swing.JPanel {
         tblTestableSlots = new javax.swing.JTable();
         btnNegative = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 255, 255));
 
         btnStartTesting.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
         btnStartTesting.setText("Start Testing");
@@ -128,7 +128,7 @@ public class ToTestListJPanel extends javax.swing.JPanel {
         });
 
         lblWelcome1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblWelcome1.setText("Testable Test Requests");
+        lblWelcome1.setText("Test Requests");
 
         tblTestableTestReqeusts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,7 +165,7 @@ public class ToTestListJPanel extends javax.swing.JPanel {
         });
 
         lblWelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblWelcome.setText("Testable Slots");
+        lblWelcome.setText("Upcoming slots");
 
         tblTestableSlots.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
