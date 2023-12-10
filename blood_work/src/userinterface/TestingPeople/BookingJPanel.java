@@ -24,7 +24,7 @@ import userinterface.ViewTestRequestDetailJPanel;
 
 /**
  *
- * @author Administrator
+ * @author shubank
  */
 public class BookingJPanel extends javax.swing.JPanel {
 

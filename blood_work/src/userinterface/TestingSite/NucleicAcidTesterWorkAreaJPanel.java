@@ -17,7 +17,7 @@ import userinterface.SettingsJPanel;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class NucleicAcidTesterWorkAreaJPanel extends javax.swing.JPanel {
 

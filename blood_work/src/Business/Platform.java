@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Administrator
+ * @author shubhank
  */
 public class Platform {
     private static Platform platform;

@@ -20,7 +20,7 @@ import javax.swing.text.Document;
 
 /**
  *
- * @author Administrator
+ * @author shreya
  */
 public class LoginJPanel extends javax.swing.JPanel {
 

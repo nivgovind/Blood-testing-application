@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Administrator
+ * @author shreya
  */
 class CDCInfoDistributionOrganization extends Organization {
 

@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class ToTestListJPanel extends javax.swing.JPanel {
 

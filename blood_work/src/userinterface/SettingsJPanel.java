@@ -37,7 +37,7 @@ import userinterface.TestingSite.TestingSiteDataHandlerWorkAreaJPanel;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class SettingsJPanel extends javax.swing.JPanel {
 

@@ -17,7 +17,7 @@ import userinterface.SettingsJPanel;
 
 /**
  *
- * @author Administrator
+ * @author shreya
  */
 public class TestingSiteAdminWorkAreaJPanel extends javax.swing.JPanel {
 

@@ -12,7 +12,7 @@ import userinterface.TestingSite.SampleCollectionPeopleWorkAreaJPanel;
 
 /**
  *
- * @author harold
+ * @author nivcodes
  */
 public class SampleCollectionPeopleRole extends Role {
 

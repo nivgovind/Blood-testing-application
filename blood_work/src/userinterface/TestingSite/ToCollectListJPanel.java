@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Administrator
+ * @author shreya
  */
 public class ToCollectListJPanel extends javax.swing.JPanel {
 

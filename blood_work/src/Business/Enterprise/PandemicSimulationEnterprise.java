@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Administrator
+ * @author shubank
  */
 class PandemicSimulationEnterprise extends Enterprise {
 

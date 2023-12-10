@@ -12,7 +12,7 @@ import userinterface.CDC.CDCAdminWorkAreaJPanel;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class CDCAdminRole extends Role{
 

@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Administrator
+ * @author shubank
  */
 public class MessageJPanel extends javax.swing.JPanel {
 

@@ -12,7 +12,7 @@ import userinterface.CDC.CDCInfoDistributorWorkAreaJPanel;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class CDCInfoDistributorRole extends Role{
     

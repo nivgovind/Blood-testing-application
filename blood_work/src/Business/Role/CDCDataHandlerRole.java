@@ -12,7 +12,7 @@ import userinterface.CDC.CDCDataHandlerWorkAreaJPanel;
 
 /**
  *
- * @author Administrator
+ * @author shubank
  */
 public class CDCDataHandlerRole extends Role{
     

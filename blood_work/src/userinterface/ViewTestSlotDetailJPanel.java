@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author Administrator
+ * @author nivcodes
  */
 public class ViewTestSlotDetailJPanel extends javax.swing.JPanel {
 

@@ -23,7 +23,7 @@ import userinterface.ViewTestSlotDetailJPanel;
 
 /**
  *
- * @author Administrator
+ * @author shreya
  */
 public class ViewSlotsJPanel extends javax.swing.JPanel {
 

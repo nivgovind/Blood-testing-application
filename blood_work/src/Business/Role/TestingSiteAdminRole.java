@@ -12,7 +12,7 @@ import userinterface.TestingSite.TestingSiteAdminWorkAreaJPanel;
 
 /**
  *
- * @author Administrator
+ * @author shreya
  */
 public class TestingSiteAdminRole extends Role{
     

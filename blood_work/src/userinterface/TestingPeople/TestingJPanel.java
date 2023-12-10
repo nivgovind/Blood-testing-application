@@ -17,7 +17,7 @@ import userinterface.ViewTestRequestDetailJPanel;
 
 /**
  *
- * @author Administrator
+ * @author shreya
  */
 public class TestingJPanel extends javax.swing.JPanel {
 
