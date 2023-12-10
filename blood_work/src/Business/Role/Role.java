@@ -31,7 +31,8 @@ public abstract class Role {
         CDCDataHandler("CDCDataHandler"),
         CDCInfoDistributor("CDCInfoDistributor"),
         CDCAdmin("CDCAdmin"),
-        SimulationOperator("SimulationOperator");
+        SimulationOperator("SimulationOperator"),
+        OverallAdmin("OverallAdmin");
         
         private String value;
         private RoleType(String value){
