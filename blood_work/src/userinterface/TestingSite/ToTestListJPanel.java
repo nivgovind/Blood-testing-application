@@ -256,7 +256,7 @@ public class ToTestListJPanel extends javax.swing.JPanel {
 
     private void btnPositiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPositiveActionPerformed
         int selectedRow = tblTestableTestReqeusts.getSelectedRow();
-
+            
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null, "Please select a testing request!!", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
@@ -264,7 +264,11 @@ public class ToTestListJPanel extends javax.swing.JPanel {
         TestRequest tr = (TestRequest)tblTestableTestReqeusts.getValueAt(selectedRow, 0);
 
         tr.markPositive(loginAccount);
+<<<<<<< HEAD
         platform.getMsgDirectory().addMessageRequest(loginAccount, tr.getTestingPeople(), "You have tested positive for this test. kindly check");
+=======
+        tr.setCdcapproved(false);
+>>>>>>> 34199f3 (Add CDC Approval UI)
         JOptionPane.showMessageDialog(null, "Test Successfully!!");
 
         populateSlotTable();

@@ -180,6 +180,10 @@ public class CDCDataHandlerWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnToAcceptListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToAcceptListActionPerformed
         // TODO add your handling code here:
+        CDCApprovalListJPanel cajp = new CDCApprovalListJPanel();
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("CDCApprovalListJPanel",cajp);
+        layout.next(rightContainer);
     }//GEN-LAST:event_btnToAcceptListActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
