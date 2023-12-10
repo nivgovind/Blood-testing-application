@@ -58,7 +58,6 @@ public class TestingPeopleAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnMangePeople = new javax.swing.JButton();
         btnAllBooking = new javax.swing.JButton();
         btnSettings = new javax.swing.JButton();
-        btnAllTesting = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         lblVersion = new javax.swing.JLabel();
         btnMessages = new javax.swing.JButton();
@@ -103,11 +102,6 @@ public class TestingPeopleAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnAllTesting.setBackground(new java.awt.Color(255, 209, 111));
-        btnAllTesting.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnAllTesting.setText("All Testing");
-        btnAllTesting.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
         btnLogout.setBackground(new java.awt.Color(215, 58, 73));
         btnLogout.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnLogout.setForeground(new java.awt.Color(255, 255, 255));
@@ -146,7 +140,6 @@ public class TestingPeopleAdminWorkAreaJPanel extends javax.swing.JPanel {
                             .addComponent(btnMangePeople, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAllBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAllTesting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(leftBarLayout.createSequentialGroup()
@@ -165,15 +158,13 @@ public class TestingPeopleAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnMangePeople)
                 .addGap(26, 26, 26)
                 .addComponent(btnAllBooking)
-                .addGap(27, 27, 27)
-                .addComponent(btnAllTesting)
-                .addGap(28, 28, 28)
+                .addGap(78, 78, 78)
                 .addComponent(btnMessages)
                 .addGap(27, 27, 27)
                 .addComponent(btnSettings)
                 .addGap(26, 26, 26)
                 .addComponent(btnLogout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(lblVersion)
                 .addContainerGap())
         );
@@ -189,10 +180,18 @@ public class TestingPeopleAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnMangePeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMangePeopleActionPerformed
         // TODO add your handling code here:
+        TestPeopleManageJPanel bjp = new TestPeopleManageJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("TestPeopleManageJPanel",bjp);
+        layout.next(rightContainer);
     }//GEN-LAST:event_btnMangePeopleActionPerformed
 
     private void btnAllBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllBookingActionPerformed
         // TODO add your handling code here:
+        TestBookingManageJPanel bjp = new TestBookingManageJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("TestBookingManageJPanel",bjp);
+        layout.next(rightContainer);
     }//GEN-LAST:event_btnAllBookingActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
@@ -220,7 +219,6 @@ public class TestingPeopleAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAllBooking;
-    private javax.swing.JButton btnAllTesting;
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnMangePeople;
     private javax.swing.JButton btnMessages;
