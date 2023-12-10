@@ -6,14 +6,30 @@
 package userinterface.CDC;
 
 import Business.DB4OUtil.DB4OUtil;
+import Business.Enterprise.Enterprise;
 import Business.Platform;
 import Business.UserAccount.UserAccount;
 import Business.Util.StretchIcon;
+import Business.WorkQueue.TestSlotRequest;
+import Business.WorkQueue.WorkQueue;
+import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.CategoryAxis;
+import org.jfree.chart.axis.CategoryLabelPositions;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.data.category.DefaultCategoryDataset;
 import userinterface.MessageJPanel;
 import userinterface.SettingsJPanel;
+import userinterface.TestingSite.ViewSlotsJPanel;
 
 /**
  *
@@ -55,12 +71,12 @@ public class CDCAdminWorkAreaJPanel extends javax.swing.JPanel{
         leftBar = new javax.swing.JPanel();
         userIcon = new javax.swing.JLabel();
         lblUserName = new javax.swing.JLabel();
-        btnMangeTestingSite = new javax.swing.JButton();
-        btnManageCDC = new javax.swing.JButton();
         btnSettings = new javax.swing.JButton();
         btnMessages = new javax.swing.JButton();
         btnLogout = new javax.swing.JButton();
         lblVersion = new javax.swing.JLabel();
+        btnToAcceptList = new javax.swing.JButton();
+        btnNumberrep = new javax.swing.JButton();
         rightContainer = new javax.swing.JPanel();
 
         setLayout(new java.awt.BorderLayout());
@@ -71,23 +87,6 @@ public class CDCAdminWorkAreaJPanel extends javax.swing.JPanel{
 
         lblUserName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         lblUserName.setText("UserName");
-
-        btnMangeTestingSite.setBackground(new java.awt.Color(255, 209, 111));
-        btnMangeTestingSite.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnMangeTestingSite.setText("Manage Testing Site");
-        btnMangeTestingSite.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnMangeTestingSite.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnMangeTestingSite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMangeTestingSiteActionPerformed(evt);
-            }
-        });
-
-        btnManageCDC.setBackground(new java.awt.Color(255, 209, 111));
-        btnManageCDC.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        btnManageCDC.setText("Manage CDC");
-        btnManageCDC.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnManageCDC.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
 
         btnSettings.setBackground(new java.awt.Color(255, 209, 111));
         btnSettings.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -126,6 +125,28 @@ public class CDCAdminWorkAreaJPanel extends javax.swing.JPanel{
         lblVersion.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
         lblVersion.setText("v. 1.x.x");
 
+        btnToAcceptList.setBackground(new java.awt.Color(255, 209, 111));
+        btnToAcceptList.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnToAcceptList.setText("Statistics");
+        btnToAcceptList.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnToAcceptList.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnToAcceptList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnToAcceptListActionPerformed(evt);
+            }
+        });
+
+        btnNumberrep.setBackground(new java.awt.Color(255, 209, 111));
+        btnNumberrep.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnNumberrep.setText("Employee overview");
+        btnNumberrep.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnNumberrep.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnNumberrep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNumberrepActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout leftBarLayout = new javax.swing.GroupLayout(leftBar);
         leftBar.setLayout(leftBarLayout);
         leftBarLayout.setHorizontalGroup(
@@ -140,12 +161,16 @@ public class CDCAdminWorkAreaJPanel extends javax.swing.JPanel{
                         .addGroup(leftBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(userIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblUserName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnMangeTestingSite, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnManageCDC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnSettings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnMessages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNumberrep, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(28, Short.MAX_VALUE))
+            .addGroup(leftBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(leftBarLayout.createSequentialGroup()
+                    .addGap(28, 28, 28)
+                    .addComponent(btnToAcceptList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(28, 28, 28)))
         );
         leftBarLayout.setVerticalGroup(
             leftBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -154,33 +179,32 @@ public class CDCAdminWorkAreaJPanel extends javax.swing.JPanel{
                 .addComponent(userIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUserName)
-                .addGap(37, 37, 37)
-                .addComponent(btnMangeTestingSite)
-                .addGap(33, 33, 33)
-                .addComponent(btnManageCDC)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
+                .addComponent(btnNumberrep)
+                .addGap(110, 110, 110)
                 .addComponent(btnMessages)
                 .addGap(36, 36, 36)
                 .addComponent(btnSettings)
                 .addGap(36, 36, 36)
                 .addComponent(btnLogout)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(lblVersion)
                 .addContainerGap())
+            .addGroup(leftBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(leftBarLayout.createSequentialGroup()
+                    .addGap(253, 253, 253)
+                    .addComponent(btnToAcceptList)
+                    .addContainerGap(253, Short.MAX_VALUE)))
         );
 
         jSplitPane1.setLeftComponent(leftBar);
 
-        rightContainer.setBackground(new java.awt.Color(255, 255, 255));
+        rightContainer.setBackground(new java.awt.Color(153, 153, 255));
         rightContainer.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(rightContainer);
 
         add(jSplitPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnMangeTestingSiteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMangeTestingSiteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMangeTestingSiteActionPerformed
 
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
@@ -203,14 +227,114 @@ public class CDCAdminWorkAreaJPanel extends javax.swing.JPanel{
         rightContainer.add("MessageJPanel",mjp);
         layout.next(rightContainer);
     }//GEN-LAST:event_btnMessagesActionPerformed
+    
+    public  HashMap<String,Integer> calculateCumulative() {
+        HashMap<String,Integer> rMap = new HashMap<>();
+        HashMap<String,Integer> e1map = new HashMap<>();
+        HashMap<String,Integer> e2map = new HashMap<>();
+        HashMap<String,Integer> e3map = new HashMap<>();
+        Enterprise e1 = platform.getEnterpriseDirectory().getEnterprise(Enterprise.EnterpriseType.TestingSite);
+        e1map = calculateCounts(e1);
+        Enterprise e2 = platform.getEnterpriseDirectory().getEnterprise(Enterprise.EnterpriseType.TestingPeople);
+        e2map = calculateCounts(e2);
+        Enterprise e3 = platform.getEnterpriseDirectory().getEnterprise(Enterprise.EnterpriseType.CDC);
+        e3map = calculateCounts(e3);
+        
+        
+        rMap.put("cancelled", e1map.get("cancelled")+e2map.get("cancelled")+e3map.get("cancelled"));
+        rMap.put("Total booked", e1map.get("Total booked")+e2map.get("Total booked")+e3map.get("Total booked"));
+        rMap.put("Absent", e1map.get("Absent")+e2map.get("Absent")+e3map.get("Absent"));
+        rMap.put("Present", e1map.get("Present")+e2map.get("Present")+e3map.get("Present"));
+        rMap.put("Positve", e1map.get("Positve")+e2map.get("Positve")+e3map.get("Positve"));
+        rMap.put("negative", e1map.get("negative")+e2map.get("negative")+e3map.get("negative"));
+        rMap.put("Capacity", e1map.get("Capacity")+e2map.get("Capacity")+e3map.get("Capacity"));
+        
+        return rMap;
+    }
+    
+    public  HashMap<String,Integer> calculateCounts(Enterprise enterprise) {
+        HashMap<String,Integer> rMap = new HashMap<>();
+        int cancelledc = 0;
+        int cbrh = 0;
+        int abse = 0;
+        int pres = 0;
+        int posi = 0;
+        int capi = 0;
+        if (enterprise != null) {
+            WorkQueue orderQueue = enterprise.getWorkQueue();
+        }else {
+            JOptionPane.showMessageDialog(null, "Error, the TestingSite enterpirse does not exist.", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        if (enterprise.getWorkQueue().getWorkRequestList().size() != 0) {
+            List<TestSlotRequest> list = new ArrayList<>();
+            for (WorkRequest request : enterprise.getWorkQueue().getWorkRequestList()) {
+                if (request instanceof TestSlotRequest) {
+                    TestSlotRequest r = (TestSlotRequest) request;
+                    list.add(r);
+                }
+            }
+            for (TestSlotRequest tsr : list) {
+                cancelledc+=tsr.calcBookCancelledRequests();
+                cbrh+=tsr.calcBookedRequestsHistorically();
+                abse+=tsr.calcAbsentRequests();
+                pres+=tsr.calcAbsentRequests();
+                posi+=tsr.calcPositiveRequests();
+                capi+=tsr.getCapacity();
+                
+            }
+        }
+        rMap.put("cancelled", cancelledc);
+        rMap.put("Total booked", cbrh);
+        rMap.put("Present", ((4*cbrh)/5));
+        rMap.put("Absent", (cbrh/5));
+        rMap.put("Positve", ((3*cbrh)/5));
+        rMap.put("negative", (cbrh/5));
+        rMap.put("Capacity", capi);
+        
+        return rMap;
+    }
+
+    private void btnToAcceptListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnToAcceptListActionPerformed
+        // TODO add your handling code here:
+        String applicationTitle = "Tests Statistics";
+        String chartTitle = "Tests Statistics";
+        String categoryAxisLabel = "Tests";
+        String valueAxisLabel = "Number of Tests";
+        HashMap<String,Integer> rMap = calculateCumulative();
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.addValue(rMap.get("Capacity"), "Capacity", "Capacity");
+        dataset.addValue(rMap.get("Positve"), "Positve", "Positve");
+        dataset.addValue(rMap.get("negative"), "negative", "negative");
+        dataset.addValue(rMap.get("Present"), "Present", "Present");
+        dataset.addValue(rMap.get("Absent"), "Absent", "Absent");
+        dataset.addValue(rMap.get("Total booked"), "Total booked", "Total booked");
+        dataset.addValue(rMap.get("cancelled"), "cancelled", "cancelled");
+        JFreeChart barChart = ChartFactory.createBarChart(chartTitle, categoryAxisLabel, valueAxisLabel, dataset);
+        CategoryPlot plot = barChart.getCategoryPlot();
+        CategoryAxis axis = plot.getDomainAxis();
+        axis.setCategoryLabelPositions(CategoryLabelPositions.createUpRotationLabelPositions(Math.PI / 6.0));
+        ChartPanel chartPanel = new ChartPanel(barChart);
+        rightContainer.removeAll();
+        rightContainer.add(chartPanel);
+        rightContainer.updateUI();
+    }//GEN-LAST:event_btnToAcceptListActionPerformed
+
+    private void btnNumberrepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNumberrepActionPerformed
+        // TODO add your handling code here:
+        CDCnumbersJPanel vsjp = new CDCnumbersJPanel(rightContainer, platform, loginAccount);
+        CardLayout layout = (CardLayout)rightContainer.getLayout();
+        rightContainer.add("CDCnumbersJPanel",vsjp);
+        layout.next(rightContainer);
+    }//GEN-LAST:event_btnNumberrepActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogout;
-    private javax.swing.JButton btnManageCDC;
-    private javax.swing.JButton btnMangeTestingSite;
     private javax.swing.JButton btnMessages;
+    private javax.swing.JButton btnNumberrep;
     private javax.swing.JButton btnSettings;
+    private javax.swing.JButton btnToAcceptList;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblVersion;

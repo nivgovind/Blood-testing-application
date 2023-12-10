@@ -227,7 +227,7 @@ public class ConfigureAPlatform {
         tsr.collectAllSamples(sampler);
         tsr.markSampleCollectionCompleted();
         tsr.TestAllSamples(natc);
-        tsr.markSampleCollectionCompleted();
+        tsr.markNucleicAcidTestCompleted();
         return tsr;
     }
     
@@ -258,11 +258,11 @@ public class ConfigureAPlatform {
         setup_slot(platform, "Qwerty6", "Qwerty@123", 5, 2023, 12, 6);
         
 //        Collected samples
-        TestSlotRequest tsr1 = setup_slot(platform, "Qwerty6", "Qwerty@123", 4, 2023, 12, 4);
+        TestSlotRequest tsr1 = setup_slot(platform, "Qwerty6", "Qwerty@123", 15, 2023, 12, 4);
         bulk_book_tests(platform, tsr1);
         
 //        tested samples
-        TestSlotRequest tsr2 = setup_slot(platform, "Qwerty6", "Qwerty@123", 4, 2023, 12, 6);
+        TestSlotRequest tsr2 = setup_slot(platform, "Qwerty6", "Qwerty@123", 20, 2023, 12, 6);
         bulk_nat_tests(platform, tsr2);
 //        certified tests
 //        TestSlotRequest tsr3 = setup_slot(platform, "Qwerty6", "Qwerty@123", 4, 2023, 12, 7);
