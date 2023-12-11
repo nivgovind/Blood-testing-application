@@ -4,7 +4,7 @@
 
 # Class diagram
 
-![diagram](images/Class diagram.jpg)
+![diagram](images/Class.jpg)
 
 # Interaction diagram
 
