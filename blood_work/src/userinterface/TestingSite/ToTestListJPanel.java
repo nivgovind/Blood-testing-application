@@ -265,7 +265,6 @@ public class ToTestListJPanel extends javax.swing.JPanel {
 
         tr.markPositive(loginAccount);
         platform.getMsgDirectory().addMessageRequest(loginAccount, tr.getTestingPeople(), "You have tested positive for this test. kindly check");
-        tr.setCdcapproved(false);
         JOptionPane.showMessageDialog(null, "Test Successfully!!");
 
         populateSlotTable();

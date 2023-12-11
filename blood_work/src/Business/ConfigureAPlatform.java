@@ -63,39 +63,39 @@ public class ConfigureAPlatform {
         platform.getCityDirectory().createAndAddCity("Los Angeles");
         platform.getCityDirectory().createAndAddCity("Boston");
         
-        Employee e = platform.getEmployeeDirectory().createAndAddEmployee("Liu Lou", "23", SexType.Male, "liu.lou@northeastern.edu", platform.getCityDirectory().getCityList().get(0));
-        testingPeopleEnterprise.getEmployeeDirectory().addEmployee(e);
-        testingPeopleOrganization.getEmployeeDirectory().addEmployee(e);
+        // Employee e = platform.getEmployeeDirectory().createAndAddEmployee("Liu Lou", "23", SexType.Male, "liu.lou@northeastern.edu", platform.getCityDirectory().getCityList().get(0));
+        // testingPeopleEnterprise.getEmployeeDirectory().addEmployee(e);
+        // testingPeopleOrganization.getEmployeeDirectory().addEmployee(e);
         
-        UserAccount ua = platform.getUserAccountDirectory().createAndAddUserAccount("coulson", "Lou123@", e, new RegisteredTestingPeopleRole());
-        testingPeopleEnterprise.getUserAccountDirectory().addUserAccount(ua);
-        testingPeopleOrganization.getUserAccountDirectory().addUserAccount(ua);
-        
-        
-        Employee e2 = platform.getEmployeeDirectory().createAndAddEmployee("Amy", "23", SexType.Female, "coulson0104@icloud.com", platform.getCityDirectory().getCityList().get(1));
-        testingPeopleEnterprise.getEmployeeDirectory().addEmployee(e2);
-        testingPeopleOrganization.getEmployeeDirectory().addEmployee(e2);
-        
-        UserAccount ua2 = platform.getUserAccountDirectory().createAndAddUserAccount("11111", "Lou123@", e2, new TestingSiteAdminRole());
-        testingSiteEnterprise.getUserAccountDirectory().addUserAccount(ua2);
-        TestingSiteManager.getUserAccountDirectory().addUserAccount(ua2);
+        // UserAccount ua = platform.getUserAccountDirectory().createAndAddUserAccount("coulson", "Lou123@", e, new RegisteredTestingPeopleRole());
+        // testingPeopleEnterprise.getUserAccountDirectory().addUserAccount(ua);
+        // testingPeopleOrganization.getUserAccountDirectory().addUserAccount(ua);
         
         
-        Employee e3 = platform.getEmployeeDirectory().createAndAddEmployee("Mike", "23", SexType.Male, "coulson0104@icloud.com", platform.getCityDirectory().getCityList().get(1));
-        testingPeopleEnterprise.getEmployeeDirectory().addEmployee(e3);
-        testingPeopleOrganization.getEmployeeDirectory().addEmployee(e3);
+        // Employee e2 = platform.getEmployeeDirectory().createAndAddEmployee("Amy", "23", SexType.Female, "coulson0104@icloud.com", platform.getCityDirectory().getCityList().get(1));
+        // testingPeopleEnterprise.getEmployeeDirectory().addEmployee(e2);
+        // testingPeopleOrganization.getEmployeeDirectory().addEmployee(e2);
         
-        UserAccount ua3 = platform.getUserAccountDirectory().createAndAddUserAccount("22222", "Lou123@", e3, new SampleCollectionPeopleRole());
-        testingSiteEnterprise.getUserAccountDirectory().addUserAccount(ua3);
-        TestingSiteManager.getUserAccountDirectory().addUserAccount(ua3);
+        // UserAccount ua2 = platform.getUserAccountDirectory().createAndAddUserAccount("11111", "Lou123@", e2, new TestingSiteAdminRole());
+        // testingSiteEnterprise.getUserAccountDirectory().addUserAccount(ua2);
+        // TestingSiteManager.getUserAccountDirectory().addUserAccount(ua2);
         
-        Employee e4 = platform.getEmployeeDirectory().createAndAddEmployee("John", "23", SexType.Male, "coulson0104@icloud.com", platform.getCityDirectory().getCityList().get(1));
-        testingPeopleEnterprise.getEmployeeDirectory().addEmployee(e4);
-        testingPeopleOrganization.getEmployeeDirectory().addEmployee(e4);
         
-        UserAccount ua4 = platform.getUserAccountDirectory().createAndAddUserAccount("33333", "Lou123@", e4, new NucleicAcidTesterRole());
-        testingSiteEnterprise.getUserAccountDirectory().addUserAccount(ua4);
-        TestingSiteManager.getUserAccountDirectory().addUserAccount(ua4);
+        // Employee e3 = platform.getEmployeeDirectory().createAndAddEmployee("Mike", "23", SexType.Male, "coulson0104@icloud.com", platform.getCityDirectory().getCityList().get(1));
+        // testingPeopleEnterprise.getEmployeeDirectory().addEmployee(e3);
+        // testingPeopleOrganization.getEmployeeDirectory().addEmployee(e3);
+        
+        // UserAccount ua3 = platform.getUserAccountDirectory().createAndAddUserAccount("22222", "Lou123@", e3, new SampleCollectionPeopleRole());
+        // testingSiteEnterprise.getUserAccountDirectory().addUserAccount(ua3);
+        // TestingSiteManager.getUserAccountDirectory().addUserAccount(ua3);
+        
+        // Employee e4 = platform.getEmployeeDirectory().createAndAddEmployee("John", "23", SexType.Male, "coulson0104@icloud.com", platform.getCityDirectory().getCityList().get(1));
+        // testingPeopleEnterprise.getEmployeeDirectory().addEmployee(e4);
+        // testingPeopleOrganization.getEmployeeDirectory().addEmployee(e4);
+        
+        // UserAccount ua4 = platform.getUserAccountDirectory().createAndAddUserAccount("33333", "Lou123@", e4, new NucleicAcidTesterRole());
+        // testingSiteEnterprise.getUserAccountDirectory().addUserAccount(ua4);
+        // TestingSiteManager.getUserAccountDirectory().addUserAccount(ua4);
 
         configure_app(platform);
 //        
@@ -143,9 +143,9 @@ public class ConfigureAPlatform {
     
     public void setup_test_users(Platform platform) {
 //        RegisteredTestingPeopleRole
-        create_account(platform, "Qwerty1", "Qwerty@123", "a@n.edu", "Qwerty1", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
-        create_account(platform, "Tpeople2", "Qwerty@123", "tp@n.edu", "Qwerty1", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
-        create_account(platform, "Tpeople3", "Qwerty@123", "tptwo@n.edu", "Qwerty1", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
+        create_account(platform, "Qwerty1", "Qwerty@123", "govindaraj.n@northeastern.edu", "Qwerty1", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
+        create_account(platform, "Tpeople2", "Qwerty@123", "gupta.shreya@northeastern.edu", "Qwerty1", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
+        create_account(platform, "Tpeople3", "Qwerty@123", "saxena.shubh@northeastern.edu", "Qwerty1", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new RegisteredTestingPeopleRole());
         
         
         create_account(platform, "Qwerty2", "Qwerty@123", "b@n.edu", "Qwerty2", "20", Employee.SexType.Female, platform.getCityDirectory().getCityList().get(1), new TestingPeopleAdminRole());
@@ -264,6 +264,9 @@ public class ConfigureAPlatform {
 //        tested samples
         TestSlotRequest tsr2 = setup_slot(platform, "Qwerty6", "Qwerty@123", 20, 2023, 12, 6);
         bulk_nat_tests(platform, tsr2);
+
+        TestSlotRequest tsr3 = setup_slot(platform, "Qwerty6", "Qwerty@123", 5, 2023, 12, 6);
+        bulk_book_tests(platform, tsr3);
 //        certified tests
 //        TestSlotRequest tsr3 = setup_slot(platform, "Qwerty6", "Qwerty@123", 4, 2023, 12, 7);
 //        bulk_nat_tests(platform, tsr3);

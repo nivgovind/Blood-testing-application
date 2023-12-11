@@ -67,6 +67,7 @@ public class TestRequest extends WorkRequest {
         this.testAbsent = false;
         this.positive = false;
         this.diseaseType = COVID;
+        this.cdcapproved = false;
     }
 
     
@@ -82,6 +83,15 @@ public class TestRequest extends WorkRequest {
             return true;
         }
         return false;
+    }
+    
+    public boolean needCdcApproval() {
+        if (getNucleicAcidTester() != null && isCdcapproved() == false) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
     
     public void book(UserAccount testingPeople, String dType) {

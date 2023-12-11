@@ -28,7 +28,7 @@ import javax.mail.internet.MimeMultipart;
  */
 public class EmailToolKit {
 
-    public static void sendMail(String from, String to, String subject, String msg) throws Exception {
+    public static void sendMail(String to, String subject, String msg) throws Exception {
         Properties prop = new Properties();
         prop.put("mail.smtp.auth", true);
         prop.put("mail.smtp.starttls.enable", "true");
@@ -38,6 +38,7 @@ public class EmailToolKit {
 
         String username = "saxena.shubhank.19@gmail.com";
         String password = "wgxp ncld xbrv utxm";
+        String from = "saxena.shubhank.19@gmail.com";
 
         Session session = Session.getInstance(prop, new Authenticator() {
             @Override
@@ -66,7 +67,7 @@ public class EmailToolKit {
         Enterprise testingPeopleEnterprise = platform.getEnterpriseDirectory().getEnterprise(Enterprise.EnterpriseType.TestingPeople);
         for (UserAccount ua : testingPeopleEnterprise.getUserAccountDirectory().getActiveUserAccounts()) {
             // Todo - Replace lorem ipsem with the to email address
-            sendMail(ua.getEmployee().getEmail(), "Lorem Ipsem","New Slot Released", "The new slot is scheduled on " + newSlot.getScheduledTestingDate() + ".");
+            sendMail(ua.getEmployee().getEmail(),"New Slot Released", "The new slot is scheduled on " + newSlot.getScheduledTestingDate() + ".");
         }
     }
 
@@ -75,19 +76,20 @@ public class EmailToolKit {
         for (TestRequest tr : tsr.getTestRequestList()) {
             if (tr.isBooked()) {
                 // Todo - Replace lorem ipsem with the to email address
-                sendMail(tr.getTestingPeople().getEmployee().getEmail(), "Lorem Ipsem ","Slot Cancelled", "We are so sorry to tell you that the slot which is scheduled on " + tr.getTestSlotRequest().getScheduledTestingDate() + " was cancelled due to some technical problems. Thanks for your cooperation.");
+                sendMail(tr.getTestingPeople().getEmployee().getEmail(),"Slot Cancelled", "We are so sorry to tell you that the slot which is scheduled on " + tr.getTestSlotRequest().getScheduledTestingDate() + " was cancelled due to some technical problems. Thanks for your cooperation.");
             }
         }
     }
     
     public static void sendEmailWhenTestResultReleased(Platform platform, TestRequest tr, String result) throws Exception {
         // Todo - Replace lorem ipsem with the to email address
-        sendMail(tr.getTestingPeople().getEmployee().getEmail(), "Lorem Ipsem", "Result Released", "Your nucleic acid test result is " + result + ". Thanks for your cooperation.");
+        System.out.println("Email sent!");
+//        sendMail(tr.getTestingPeople().getEmployee().getEmail(), "Result Released", "Your nucleic acid test result is " + result + ". Thanks for your cooperation.");
     }
 
     public static void sendEmailWhenSuccessfullyRegistered(String email, UserAccount ua) throws Exception {
         // Todo - Replace lorem ipsem with the from and to email address. Replace username with the username of the user who registered
-        sendMail("Lorem Ipsem", "Lorem Ipsem", "Registration completed", "Hi, " + "Username"  + "!\n\nCongratulations, you are registered successfully to our blood testing platrom.");
+        sendMail(ua.getEmployee().getEmail(), "Registration completed", "Hi, " + "Username"  + "!\n\nCongratulations, you are registered successfully to our blood testing platrom.");
     }
 }
 
