@@ -74,97 +74,97 @@ public class CDCHistoryJPanel extends javax.swing.JPanel {
         }
     }
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initComponents() {
-
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblTestableSlots = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblTestableTestReqeusts = new javax.swing.JTable();
-        btnStartTesting = new javax.swing.JButton();
-        lblWelcome = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(153, 204, 255));
-
-        tblTestableSlots.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Scheduled Testing Date", "Testing Capacity", "Status", "Still Booked Requests", "Book Cancelled Requests", "Absent Requests", "Positive People"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane1.setViewportView(tblTestableSlots);
-
-        tblTestableTestReqeusts.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Status", "Sample Collector", "Nucleic Acid Tester", "Test Result"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane2.setViewportView(tblTestableTestReqeusts);
-
-        btnStartTesting.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
-        btnStartTesting.setText("View details");
-        btnStartTesting.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStartTestingActionPerformed(evt);
-            }
-        });
-
-        lblWelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lblWelcome.setText("History");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(473, 473, 473)
-                                .addComponent(btnStartTesting)))
-                        .addGap(56, 56, 56))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
-                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnStartTesting)
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-    }// </editor-fold>                        
+//    private void initComponents() {
+//
+//        jScrollPane1 = new javax.swing.JScrollPane();
+//        tblTestableSlots = new javax.swing.JTable();
+//        jScrollPane2 = new javax.swing.JScrollPane();
+//        tblTestableTestReqeusts = new javax.swing.JTable();
+//        btnStartTesting = new javax.swing.JButton();
+//        lblWelcome = new javax.swing.JLabel();
+//
+//        setBackground(new java.awt.Color(153, 204, 255));
+//
+//        tblTestableSlots.setModel(new javax.swing.table.DefaultTableModel(
+//            new Object [][] {
+//
+//            },
+//            new String [] {
+//                "Scheduled Testing Date", "Testing Capacity", "Status", "Still Booked Requests", "Book Cancelled Requests", "Absent Requests", "Positive People"
+//            }
+//        ) {
+//            boolean[] canEdit = new boolean [] {
+//                false, false, false, false, false, false, false
+//            };
+//
+//            public boolean isCellEditable(int rowIndex, int columnIndex) {
+//                return canEdit [columnIndex];
+//            }
+//        });
+//        jScrollPane1.setViewportView(tblTestableSlots);
+//
+//        tblTestableTestReqeusts.setModel(new javax.swing.table.DefaultTableModel(
+//            new Object [][] {
+//
+//            },
+//            new String [] {
+//                "Status", "Sample Collector", "Nucleic Acid Tester", "Test Result"
+//            }
+//        ) {
+//            boolean[] canEdit = new boolean [] {
+//                false, false, false, false
+//            };
+//
+//            public boolean isCellEditable(int rowIndex, int columnIndex) {
+//                return canEdit [columnIndex];
+//            }
+//        });
+//        jScrollPane2.setViewportView(tblTestableTestReqeusts);
+//
+//        btnStartTesting.setFont(new java.awt.Font("微软雅黑", 1, 14)); // NOI18N
+//        btnStartTesting.setText("View details");
+//        btnStartTesting.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                btnStartTestingActionPerformed(evt);
+//            }
+//        });
+//
+//        lblWelcome.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+//        lblWelcome.setText("History");
+//
+//        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+//        this.setLayout(layout);
+//        layout.setHorizontalGroup(
+//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(layout.createSequentialGroup()
+//                .addGap(41, 41, 41)
+//                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//                    .addGroup(layout.createSequentialGroup()
+//                        .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+//                    .addGroup(layout.createSequentialGroup()
+//                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+//                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+//                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+//                            .addGroup(layout.createSequentialGroup()
+//                                .addGap(473, 473, 473)
+//                                .addComponent(btnStartTesting)))
+//                        .addGap(56, 56, 56))))
+//        );
+//        layout.setVerticalGroup(
+//            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+//            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+//                .addContainerGap(41, Short.MAX_VALUE)
+//                .addComponent(lblWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addGap(35, 35, 35)
+//                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addGap(18, 18, 18)
+//                .addComponent(btnStartTesting)
+//                .addGap(28, 28, 28)
+//                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+//                .addGap(23, 23, 23))
+//        );
+//    }// </editor-fold>                        
 
     private void populateCollectableTestingRequestTable(TestSlotRequest tsr) {
         DefaultTableModel dtm = (DefaultTableModel) tblTestableTestReqeusts.getModel();
