@@ -2,9 +2,59 @@
 
 [presentation URL](https://docs.google.com/presentation/d/1ouxEe6vAiGGQrunYvVlHQuvWyT7RR7Hhlx2ZUEFcnzI/edit?usp=sharing)
 
-# Class diagram
+# Blood Testing Application Handbook
 
-![diagram](images/Class.jpg)
+## Application Overview
+
+The Blood Testing Application is a comprehensive platform designed to manage the entire lifecycle of blood testing processes. It facilitates interactions between various stakeholders, including patients, technicians, lab personnel, and regulatory bodies.
+
+## Key Features
+
+1. **Appointment Scheduling**: Users can book blood test appointments.
+2. **Sample Collection Management**: Technicians can update sample collection status.
+3. **Laboratory Testing**: Lab technicians can perform tests and update results.
+4. **Result Approval**: CDC can review and approve test results.
+5. **Inventory Management**: Track and manage testing equipment and supplies.
+6. **Reporting**: Generate system-wide performance and data reports.
+
+## Technology Stack
+
+- **Programming Language**: Java
+- **User Interface**: Java Swing
+- **Database**: db4o (object-oriented database)
+- **Email Integration**: JavaMail API
+
+## Architecture and Methodologies
+
+- **Design Pattern**: Model-View-Controller (MVC)
+- **Authentication**: Role-based access control
+- **Data Persistence**: Object-oriented database (db4o)
+- **User Interface**: Desktop application using Java Swing
+
+## Data Flow
+
+1. User registers and schedules an appointment
+2. Sample technician collects the sample and updates status
+3. Lab technician performs the test and records results
+4. CDC approves the results
+5. User can view their test results
+
+## Security Measures
+
+- Role-based authentication
+- Secure password storage
+- Data encryption for sensitive information
+
+## Scalability and Performance
+
+- The application is designed to handle multiple enterprises and organizations
+- Efficient data retrieval using object-oriented database
+
+## Future Enhancements
+
+- Integration with external laboratory systems
+- Mobile application for users
+- Advanced analytics and reporting features
 
 # Interaction diagram
 
